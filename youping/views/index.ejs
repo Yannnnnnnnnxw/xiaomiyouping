@@ -1,1 +1,292 @@
-index
+<% include base/head.ejs%>
+<link rel="stylesheet" href="/name/lfz/index.css">
+
+    <div class="box">
+        <div class="banner_top">
+            <div class="logo"> 
+                <img src="/name/lfz/img/logo.png" alt="">
+            </div>
+            <div class="xianshi"><span>限时抢购</span></div>
+            <div class="search">
+                <img src="/name/lfz/img/heisearch.png" alt="">
+                <img src="/name/lfz/img/huangsearch.png" alt="">
+                <input type="text" placeholder="搜一搜">
+            </div>
+            <div class="car">
+                <div class="jiaobiao"><span class="jiaobiaoshu">4</span></div>
+                <img src="/name/lfz/img/heiche.png" alt="">
+                <img src="name/lfz/img/huangche.png" alt="">
+            </div>
+        </div>
+        <div class="banner">
+            <div class="liebiao">
+                <ul>
+                <% for(let i=0;i<data.length;i++){ %>
+                    <li class="lie_li">
+                        <div><span class="h1"><%= data[i].class[0] %></span>&nbsp;/&nbsp;<span class="h2"><%= data[i].class[1] %></span></div>
+                        <div class="biao_box">
+                            <div class="biao_box1">
+                                <p><%= data[i].class[0] %></p>
+                                <% for(let j=0;j<data2.length;j++){ %>
+                                    <% if(data2[j].class == data[i].class[0]){ %>
+                                        <div class="biao biao1">
+                                            <img src="<%= data2[j].src %>" alt="">
+                                            <p><%= data2[j].sub_class %></p>
+                                        </div>
+                                    <% } %>
+                                <% } %>
+                            </div>
+                            <div class="biao_box1">
+                                <p><%= data[i].class[1] %></p>
+                                <% for(let j=0;j<data2.length;j++){ %>
+                                    <% if(data2[j].class == data[i].class[1]){ %>
+                                        <div class="biao biao2">
+                                            <img src="<%= data2[j].src %>" alt="">
+                                            <p><%= data2[j].sub_class %></p>
+                                        </div>
+                                    <% } %>
+                                <% } %>
+                            </div>  
+                        </div> 
+                    </li>  
+                <% } %>
+                </ul>
+            </div>
+            <div class="banner_min">
+                <div class="banner_max">
+                    <img class="banner_img" src="/name/lfz/img/banner1.jpg" alt="">
+                    <img class="banner_img" src="/name/lfz/img/banner2.jpg" alt="">
+                    <img class="banner_img" src="/name/lfz/img/banner3.jpg" alt="">
+                    <img class="banner_img" src="/name/lfz/img/banner4.jpg" alt="">
+                    <img class="banner_img" src="/name/lfz/img/banner5.jpg" alt="">
+                    <img class="banner_img" src="/name/lfz/img/banner6.jpg" alt="">
+                    <img class="banner_img" src="/name/lfz/img/banner7.jpg" alt="">
+                </div>
+                <div class="anniu">
+                    <img class="anleft" src="/name/lfz/img/baileft.png" alt="">
+                    <img class="anright" src="/name/lfz/img/bairight.png" alt="">
+                </div>
+                <div>
+                    <ul class="dianul">
+                        <li class="dian bor"></li>
+                        <li class="dian"></li>
+                        <li class="dian"></li>
+                        <li class="dian"></li>
+                        <li class="dian"></li>
+                        <li class="dian"></li>
+                        <li class="dian"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="banner_bottom">
+            <div>
+                <img src="/name/lfz/img/banner_b.png" alt="">
+                <p>每日新品</p>
+            </div>
+            <div>
+                <img src="/name/lfz/img/banner_b2.png" alt="">
+                <p>小米众筹</p>
+            </div>
+            <div>
+                <img src="/name/lfz/img/banner_b3.png" alt="">
+                <p>限时抢购</p>
+            </div>
+            <div>
+                <img src="/name/lfz/img/banner_b4.png" alt="">
+                <p>热销榜单</p>
+            </div>
+            <div>
+                <img src="/name/lfz/img/banner_b5.png" alt="">
+                <p>一元拼购</p>
+            </div>
+        </div>
+        <div class="zhongchou">
+            <div class="zhongchou_top">
+                <div><span>小米众筹</span>&nbsp;&nbsp;&nbsp;<span>永远好奇 永远年轻</span></div>
+                <div class="gengduo"><span>更多</span>&nbsp;&nbsp;&nbsp;<img class="bjiantou" src="/name/lfz/img/bairightjiantou.png" alt=""><img class="hjiantou" src="/name/lfz/img/huangrightjiantou.png" alt="">&nbsp;</div>
+            </div>
+            <div class="zhongchou_center">
+                <div>
+                    <div>
+                        <p>PMA-秒秒测智能低压电...</p>
+                        <p>低压智能控温，米家APP联动，可根...</p>
+                        <div>
+                            <span>￥</span>
+                            <span>199</span>
+                            <span>起</span>
+                        </div>
+                    </div>
+                    <img src="/name/lfz/img/zhongchou1.png" alt="">
+                </div>
+                <div>
+                    <div>
+                        <p>峰米投影仪 Vogue</p>
+                        <div>
+                            <span>￥</span>
+                            <span>3699</span>
+                        </div>
+                    </div>
+                    <img src="/name/lfz/img/zhongchou2.png" alt="">
+                </div>
+                <div>
+                    <div>
+                        <p>朗菲毛球修剪器</p>
+                        <div>
+                            <span>￥</span>
+                            <span>39</span>
+                        </div>
+                    </div>
+                    <img src="/name/lfz/img/zhongchou3.png" alt="">
+                </div>
+            </div>
+            <div class="zhongchou_center_bar">
+                <img src="/name/lfz/img/bar1.png" alt="">
+                <img src="/name/lfz/img/bar2.png" alt="">
+                <img src="/name/lfz/img/bar3.png" alt="">
+            </div>
+            <div class="zhongchou_center_bottom">
+                <div>
+                    <div>
+                        <span>2159</span>
+                        <span>人支持</span>
+                        <span class="huo">火</span>
+                    </div>
+                    <div>
+                        <span>431</span>
+                        <span>%</span>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <span>89</span>
+                        <span>人支持</span>
+                    </div>
+                    <div>
+                        <span>44</span>
+                        <span>%</span>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <span>71567</span>
+                        <span>人支持</span>
+                        <span class="bao">爆</span>
+                    </div>
+                    <div>
+                        <span>3578</span>
+                        <span>%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="xianshigou">
+            <div class="h_box">
+                <div>
+                    <span class="h">限时购</span>
+                    <img class="h_i" src="/name/lfz/img/zhongbiao.png" alt="">
+                    <span class="shichang">09:00场</span>
+                    <div class="daojishi"><span>00</span>&nbsp;:&nbsp;<span>00</span>&nbsp;:&nbsp;<span>01</span></div>
+                </div>
+                <div class="gengduo1">
+                    <span>更多</span>&nbsp;&nbsp;&nbsp;<img class="bjiantou1" src="/name/lfz/img/bairightjiantou.png" alt=""><img class="hjiantou1" src="/name/lfz/img/huangrightjiantou.png" alt="">&nbsp;
+                </div>
+            </div>
+            <div class="banner2_min">
+                <div class="banner2_max">
+                    <% for(let i=0;i<data3.length;i++){%>
+                        <div>
+                            <img src=<%=data3[i].imgsrc[0]%> alt="">
+                            <p><%=data3[i].title%></p>
+                            <div>
+                                <span>￥</span>
+                                <span><%=data3[i].nowPrice%></span>
+                                <span><%=data3[i].oldPrice%></span>
+                            </div>
+                        </div>
+                    <% }%>
+                </div>
+                <img class="anleft2" src="/name/lfz/img/baileft.png" alt="">
+                <img class="anright2" src="/name/lfz/img/bairight.png" alt="">
+            </div>
+        </div>
+        <div class="xianshigou">
+            <div class="h_box">
+                <div>
+                    <span class="h">每日新品</span>
+                    <span class="hh">每天十点惊喜不断</span>
+                </div>
+                <div class="gengduo1">
+                    <span>更多</span>&nbsp;&nbsp;&nbsp;<img class="bjiantou1" src="/name/lfz/img/bairightjiantou.png" alt=""><img class="hjiantou1" src="/name/lfz/img/huangrightjiantou.png" alt="">&nbsp;
+                </div>
+            </div>
+            <div class="banner3_min">
+                <div class="banner3_max">
+                    <% for(let i=0;i<data4.length;i++){%>
+                        <div>
+                            <img src=<%=data4[i].imgsrc[0]%> alt="">
+                            <p><%=data4[i].title%></p>
+                            <div>
+                                <span>￥</span>
+                                <span><%=data4[i].nowPrice%></span>
+                                <span><%=data4[i].oldPrice%></span>
+                            </div>
+                        </div>
+                    <% }%>
+                </div>
+                <img class="anleft3" src="/name/lfz/img/baileft.png" alt="">
+                <img class="anright3" src="/name/lfz/img/bairight.png" alt="">
+            </div>
+        </div>
+        <div class="xianshigou">
+            <div class="h_box">
+                <div>
+                    <span class="h">热门</span>
+                    <span class="hh">感动人心 价格厚道</span>
+                </div>
+                <div class="gengduo1">
+                    <span>更多</span>&nbsp;&nbsp;&nbsp;<img class="bjiantou1" src="/name/lfz/img/bairightjiantou.png" alt=""><img class="hjiantou1" src="/name/lfz/img/huangrightjiantou.png" alt="">&nbsp;
+                </div>
+            </div>
+            <div class="banner4_min">
+                <div class="banner4_max">
+                    <% for(let i=0;i<data5.length;i++){%>
+                        <div>
+                            <img src=<%=data5[i].imgsrc[0]%> alt="">
+                            <p><%=data5[i].title%></p>
+                            <div>
+                                <span>￥</span>
+                                <span><%=data5[i].nowPrice%></span>
+                                <span><%=data5[i].oldPrice%></span>
+                            </div>
+                        </div>
+                    <% }%>
+                </div>
+                <img class="anleft4" src="/name/lfz/img/baileft.png" alt="">
+                <img class="anright4" src="/name/lfz/img/bairight.png" alt="">
+            </div>
+        </div>
+        <div class="zhuanshutuijian">
+            <p>专属推荐</p>
+            <% for(let i=0;i<data6.length;i++){%>
+                <div class="zhuanshu" id="<%=data6[i].id%>">
+                    <div><img src=<%=data6[i].imgsrc[0]%> alt=""></div>
+                    <p><%=data6[i].desc%></p>
+                    <div class="zstext">
+                        <%if(data6[i].saletags){%>
+                            <div class="tejia"><p><%=data6[i].saletags%></p></div>
+                        <%}%>
+                        <p><%=data6[i].title%></p>
+                        <div>
+                            <span>￥</span>
+                            <span><%=data6[i].nowPrice%></span>
+                            <span>起</span>
+                        </div>
+                    </div>
+                </div>
+            <%}%>  
+        </div>
+    </div>
+<script src="/javascripts/jquery.js"></script>
+<script src="/name/lfz/index.js"></script>
+<% include base/foot.ejs%>

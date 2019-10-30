@@ -1,5 +1,5 @@
 const createError = require('http-errors');
-// const db = require('./model/db')
+const db = require('./model/db')
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -22,14 +22,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 // 设置界面路由
 app.use('/user',require('./routes/user'))
 app.use('/index',require('./routes/index'))
-app.get('/index/list/info',require('./controller/info'))
+app.get('/index/info/:good',require('./controller/info'))
 
 
 
 
 // 设置功能路由
-
-
+app.post("/changeState",require("./api/changeState"))
 
 
 

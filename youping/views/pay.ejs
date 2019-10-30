@@ -1,0 +1,220 @@
+<% include base/head.ejs%>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        list-style:none;
+    }
+    .box{
+        width:100%;
+        background:#F2F2F2;
+    }
+    .box_top{
+        width:1080px;
+        margin:0 auto;
+        box-sizing:border-box;
+        padding:30px 0;
+    }
+    .box_center{
+        width:1080px;
+        margin:0 auto;
+        box-sizing:border-box;
+        padding:30px 0;
+    }
+    .box_top>a{
+        float:left;
+        font-size:13px;
+    }
+    .box_top>a:nth-of-type(1):after,.box_top>a:nth-of-type(2):after{
+        content:">"
+    }
+    .box_top>a:nth-of-type(3){
+        color:#999;
+    }
+    .box_top:after{
+        content:"";
+        display:block;
+        clear:both;
+    }
+    .box_center>p:nth-of-type(1){
+        font-size:28px;
+        color:#333;
+        margin-bottom:30px;
+    }
+    .box_center>p:nth-of-type(2){
+        font-size:14px;
+        color:#333;
+        margin:12px 0;
+    }
+    ul{
+        font-size:14px;
+        color:#333;
+    }
+    ul>li{
+        height:25px;
+    }
+    .bottom{
+        width:1080px;
+        margin:0 auto;
+        box-sizing:border-box;
+        padding:80px 0;
+        height:400px;
+    }
+    .bottom>p:nth-of-type(1){
+        font-size:18px;
+        color:#333;
+        margin-bottom:10px;
+    }
+    hr{
+        margin-bottom:30px;
+        height:2px;
+        background:#E7E7E7;
+        border:none
+    }
+    .fangshi{
+        width:173px;
+        height:59px;
+        border:1px solid rgb(224, 224, 224);
+        margin-top:20px;
+        border-radius:2px;
+    }
+    .fangshi>img{
+        width:40px;
+        height:40px;
+        margin:9px 0 0 25px ;
+        display:block;
+        float:left;
+    }
+    .fangshi>span:nth-of-type(1){
+        display:block;
+        float:left;
+        margin:20px 0 0 6px ;
+        color:rgb(85, 85, 85);
+        position:relative;
+        top:-8px;
+        left:2px;
+        letter-spacing:2px;   
+        font-weight: 600;
+    }
+    .fangshi>span:nth-of-type(2){
+        font-size:12px;
+        color:rgb(85, 85, 85);
+        position:relative;
+        top:-13px;
+        left:8px;
+        letter-spacing:8px;   
+    }
+    .zhifu{
+        width:500px;
+        height:500px;
+        background:#999;
+        position:fixed;
+        top:10%;
+        left:30%;
+        border-radius:50%;
+        overflow: hidden;
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+    .zhifu>img{
+        transform:scale(1.87)
+    }
+    .fangshi:hover{
+        cursor:pointer;
+    }
+    .chenggong{
+        width:150px;
+        height:40px;
+        border:1px solid #03F9D0;
+        position: absolute;
+        bottom:30px;
+        left:175px;
+        text-align: center;
+        line-height: 35px;
+        border-radius:3px;
+        display:none;
+    }
+    .chenggong>p{
+        color:#03F9D0;
+        letter-spacing:5px; 
+    }
+    .chenggong:hover{
+        cursor:pointer;
+    }
+    .lii{
+        margin-left:70px;
+    }
+</style>
+<div class="box">
+    <div class="box_top">
+        <a>首页&nbsp;</a>
+        <a>&nbsp;个人中心&nbsp;</a>
+        <a>&nbsp;确认订单</a>
+    </div>
+    <div class="box_center">
+        <p>订单提交成功！去付款咯～</p>
+        <p>请在1小时内完成支付, 超时后将取消订单</p>
+        <ul>
+            <li><span>订单编号：</span><span class="time"><%=data.time%></span></li>
+            <li><span>订单价格：</span><span><%=data.totalPrice%></span>元</li>
+            <li><span>收货信息：</span><span class="username"><%=data.username%></span>&nbsp;&nbsp;<span><%=data.username%>&nbsp;&nbsp;<%=data.address%></span></li>
+            <li><span>商品名称：</span><span><%=data.goods[0].title%></span></li>
+            <%for(let i=1;i<data.goods.length;i++){%>
+            <li class="lii"><span><%=data.goods[i].title%></span></li>
+            <%}%>
+            <li><span>配送时间：</span><span>不限送货时间</span></li>
+            <li><span>发票类型：</span><span>不开发票</span></li>
+        </ul>
+    </div>
+</div>
+<div class="bottom">
+    <p>选择以下支付方式付款</p>
+    <hr>
+    <p>支付平台</p>
+    <div class="fangshi"><img src="/name/lfz/img/renlian2.png" alt=""><span>人脸支付</span><span>RLPAY</span></div>
+</div>
+<div class="zhifu">
+    <img src="/name/lfz/img/zhifu.gif" alt="">
+    <div class="chenggong">
+        <p>支付完成</p>
+    </div>
+</div>
+
+
+
+
+
+<script src="/javascripts/jquery.js"></script>
+<script>
+    $(".fangshi").click(()=>{
+        $(".zhifu").show(1500)
+        $(".zhifu").css({"display":"flex"})
+        setTimeout(()=>{
+            $(".chenggong").css({"display":"block"})
+        },3000)
+    })
+    $(".chenggong").click(()=>{
+        $(".zhifu").fadeOut("1000");
+        $(".chenggong").css({"display":"none"})
+    })
+
+
+
+    $(".chenggong").click(()=>{
+        $.ajax({
+            type:"post",
+            url:"/changeState",
+            data:{username:$(".username").html(),time:$(".time").html()},
+            success:function(data){
+                if(data.code){
+                    layer.msg('支付已完成，3秒后将返回首页');
+                    setTimeout(function(){
+                        location.href="/index"
+                    },2000)
+                }
+            }
+        })
+    })
+</script>
+<% include base/foot.ejs%>

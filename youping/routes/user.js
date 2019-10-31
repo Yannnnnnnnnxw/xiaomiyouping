@@ -3,7 +3,7 @@ const Router = express.Router()
 
 Router.get('/register',require('../controller/register'))
 Router.get('/login',require('../controller/login'))
-Router.get('/cart',require('../controller/cart'))
+Router.get('/cart/:username',require('../controller/cart'))
 
 // wangyaoyao
 Router.get('/search/aircraft',require('../controller/aircraft'))

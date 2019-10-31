@@ -46,7 +46,14 @@ app.post('/cart',require('./api/crecart'))
 app.post('/buynow',require('./api/buynow'))
 app.post('/collection',require('./api/collection'))
 app.post('/canclecoll',require('./api/canclecoll'))
-
+// yxw
+app.get('/findPAndSClass',require('./api/findPAndSClass'))
+app.get('/leave',require('./api/leave'))
+app.post('/findCart',require('./api/findCart'))
+app.post('/jian',require('./api/jian'))
+app.post('/jia',require('./api/jia'))
+app.post('/delete',require('./api/delete'))
+app.post('/crecartsure',require('./api/creCartsure'))
 
 
 

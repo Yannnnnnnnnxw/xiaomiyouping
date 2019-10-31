@@ -138,32 +138,6 @@ $(".gengduo").mouseleave(()=>{
     $(".hjiantou").css({"display":"none"})
     $(".gengduo>span").css({"color":"#999"})
 })
-$(".search>img:first-of-type").mouseenter(()=>{
-    $(".search>img:first-of-type").css({"display":"none"})
-    $(".search>img:last-of-type").css({"display":"inline"})
-    $(".search>img:first-of-type").css({"cursor":"pointer"})
-})
-$(".search>img:last-of-type").mouseleave(()=>{
-    $(".search>img:first-of-type").css({"display":"inline"})
-    $(".search>img:last-of-type").css({"display":"none"})
-    $(".search>img:last-of-type").css({"cursor":"pointer"})
-})
-$(".car>img:first-of-type").mouseenter(()=>{
-    $(".car>img:first-of-type").css({"display":"none"})
-    $(".car>img:last-of-type").css({"display":"inline"})
-    $(".car>img:first-of-type").css({"cursor":"pointer"})
-})
-$(".car>img:last-of-type").mouseleave(()=>{
-    $(".car>img:first-of-type").css({"display":"inline"})
-    $(".car>img:last-of-type").css({"display":"none"})
-    $(".car>img:last-of-type").css({"cursor":"pointer"})
-})
-$(".search>input").focus(()=>{
-    $(".search").css({"borderBottom":"1px solid #845F3F"})
-})
-$(".search>input").blur(()=>{
-    $(".search").css({"borderBottom":"1px solid #ccc"})
-})
 
 $(".anleft2").mouseenter(()=>{
     $(".anleft2").attr("src","/name/lfz/img/huangleft.png")
@@ -284,20 +258,20 @@ var p2 =document.querySelectorAll(".biao2>p")
 
 for(let i=0;i<h1.length;i++){
     h1[i].onclick=function(){
-       location.href = `index/list/${h1[i].innerHTML}`
+        location.href = `index/list/${h1[i].innerHTML}/main/#${h1[i].innerHTML}`
     }
     h2[i].onclick=function(){
-        location.href = `index/list/${h2[i].innerHTML}`  
+        location.href = `index/list/${h2[i].innerHTML}/main/#${h2[i].innerHTML}`  
     }
     lie_li[i].onmouseenter=()=>{
         for(let j=0;j<biao1.length;j++){
             biao1[j].onclick=function(){
-                location.href = `index/list/${h1[i].innerHTML}/${p1[j].innerHTML}`
+                location.href = `index/list/${h1[i].innerHTML}/${p1[j].innerHTML}/#${p1[j].innerHTML}`
             }
         }
         for(let j=0;j<biao1.length;j++){
             biao2[j].onclick=function(){
-                location.href = `index/list/${h2[i].innerHTML}/${p2[j].innerHTML}`
+                location.href = `index/list/${h2[i].innerHTML}/${p2[j].innerHTML}/#${p2[j].innerHTML}`
             }
         }
     }

@@ -1,6 +1,13 @@
 <% include base/head.ejs %>
+
+<% include base/nav.ejs %>
+
+<% include base/nav1.ejs %>
+
+<% include base/fixedbar.ejs%>
+
 <link href="/stylesheets/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<link rel="stylesheet" href="/name/wdy/css/font-awesome.css">
+<!-- <link rel="stylesheet" href="/name/wdy/css/font-awesome.css"> -->
 
 
 
@@ -277,7 +284,7 @@
     .daishou{
         border:1px solid rgb(255, 255, 255);
         width:750px;
-        height:310px;
+        /* height:310px; */
         margin-left:50px;
         margin-top:30px;
     }
@@ -345,12 +352,12 @@
         border-bottom:1px dotted rgb(216, 216, 216);
         padding:20px;
         position: relative;
-        height:90px;
+        height:60px;
+        box-sizing: content-box;
     }
+    
     .queren{ 
-        position: absolute;
-        right:0;
-        top:10px;
+        float:right;
     }
     .daishou_bottom_bottom>button{
         margin-left:20px;
@@ -457,7 +464,7 @@
                     <%for(let i=0;i<data2.length;i++){%>
                         <div class="daishou neirong">
                             <div class="daishou_top">
-                                <p><span class="data3">订单日期:<span class="datatime"> <%=data2[i].time%></span></span></p>
+                                <p><span class="data3">订单日期:<span class="datatime"><%=data2[i].time%></span></span></p>
                                 <p>待付款</p>
                             </div>
                             <%for(let j=0;j<data2[i].goods.length;j++){%>
@@ -567,7 +574,19 @@
         </div>
     </div>
 <script>
-    $('.uuuname').html($('.m-username').html())
+    $(function(){
+        $('.uuuname').html(`${$('.m-username').html()}`)
+        var pay = document.querySelectorAll('.pay')
+        var datatime = document.querySelectorAll('.datatime')
+        for(let i=0;i<pay.length;i++){
+            pay[i].onclick=function(){
+                location.href=`/user/pay/${$('.uuuname').html()}/${datatime[i].innerHTML}`
+            }
+        }
+
+    })
+    
+   
 var circle=document.getElementsByClassName('circle')
 var mycircle=document.getElementsByClassName('mycircle')
 var br=document.getElementsByClassName('bottom_right')
@@ -638,13 +657,6 @@ for(let i=0;i<btnn.length;i++){
     }
 }
 
-var pay = document.querySelectorAll('.pay')
-var datatime = document.querySelectorAll('.datatime')
-for(let i=0;i<pay.length;i++){
-    pay[i].onclick=function(){
-        location.href=`/user/pay/${$('.m-username').html()}/${datatime[i].innerHTML}`
-    }
-}
 
 
 
@@ -652,5 +664,6 @@ for(let i=0;i<pay.length;i++){
 
 </script>
 
+<% include base/nav2.ejs %>
 
 <% include base/foot.ejs %>

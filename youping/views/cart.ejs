@@ -1,1 +1,105 @@
-cart
+<% include base/head.ejs %>
+
+<% include base/nav.ejs %>
+
+<% include base/nav1.ejs %>
+
+<% include base/fixedbar.ejs%>
+
+<link rel="stylesheet" href="/name/yxw/cart.css">
+<div class="shopping-cart">
+    <div class="shopping-cart-container">
+        <div class="m-secondary-navigator">
+            <span class="shouye"><a href="/index">首页</a></span>
+            <span class="fa fa-chevron-right"></span>
+            <span class="gouwuche"><a href="#">购物车</a></span>
+        </div>
+        <% if(data.length==0){ %>
+            <div class="no-good-container">
+                <div class="m-no-cart">
+                    <div class="e-img"></div>
+                    <p class="e-info">购物车还是空的</p>
+                </div>
+                <div class="btn-wrap">
+                    <a href="/index">继续逛</a>
+                </div>
+            </div>
+        <% }else{ %>
+            <div class="has-good-container">
+                <div class="title" id="good-title">
+                    <input type="checkbox" class="title-checkbox checkbox1 cbox" checked>
+                    <span class="all-txt">全选</span>
+                    <span class="product">商品信息</span>
+                    <span class="price">单价</span>
+                    <span class="num">数量</span>
+                    <span class="total">金额</span>
+                    <span class="edit">操作</span>
+                </div>
+                <div class="cart-merchant-list" id="merchantList">
+                    <div class="merchant-info">
+                        <input type="checkbox" class="merchant-info-checkbox checkbox1 cbox" checked>
+                        <span class="name">有品推荐</span>
+                        <div class="postmarginright mijiapost">
+                            <span class="layer-show"><span class="postimg">!</span>满99.00元免运费<span class="cart-join">凑单&gt;</span></span>
+                            <span class="layer-hide">有品精选商品，即有品配送和第三方商家发货的商品，2018年1月1日起，单笔订单满99元免运费，不满99元收10元运费。*包邮订单拆单后若部分订单退款使得剩余订单不满足包邮条件时将补扣10元运费。</span>
+                        </div>
+                    </div>
+                    <% for(var i=0;i<data.length;i++){ %>
+                        <div class="cart-good-items" id=<%= data[i]._id %>>
+                            <div class="select" id=<%= data[i].id %>>
+                                <input type="checkbox" class="select-checkbox cbox" checked>
+                            </div>
+                            <div class="image">
+                                <img src=<%= data[i].imgsrc %>>
+                            </div>
+                            <div class="gname">
+                                <div class="vertical-wrap">
+                                    <p class="good-name brown-hover">
+                                        <%= data[i].title %>
+                                        <% for(var j=0;j<data[i].shopTags.length;j++){ %>
+                                            <%= data[i].shopTags[j].tags %>
+                                        <% } %>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="gprice">
+                                <span>¥</span>
+                                <span class="danjia"><%= data[i].price%></span>
+                            </div>
+                            <div class="gnum">
+                                <div class="can-edit">
+                                    <span class="fa fa-minus jian"></span><span class="shuliang"><%= data[i].count%></span><span class="fa fa-plus jia"></span>
+                                </div>
+                            </div>
+                            <div class="subtotal">
+                                <span>¥</span>
+                                <span class="subzongjia"></span>
+                            </div>
+                            <div class="del">
+                                <span class="fa fa-times del1"></span>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+                <div class="cart-total">
+                    <div class="totalselect fl">
+                        <span class="totalselect-icon"><input type="checkbox" class="totalselect-checkbox checkbox1 cbox" checked></span>
+                        <span class="select-text">全选</span>
+                        <span class="already-select">已选<span class="yixuan">0</span>件</span>
+                    </div>
+                    <div class="totol-price-con">
+                        <span class="zongji">总计：</span>
+                        <span>¥</span>
+                        <span class="totalprice">0</span>
+                        <span class="checkout disable fr">去结算</span>
+                    </div>
+                </div> 
+            </div>
+        <% } %>
+    </div>
+</div>
+<script src="/name/yxw/cart.js"></script>
+
+<% include base/nav2.ejs %>
+
+<% include base/foot.ejs %>

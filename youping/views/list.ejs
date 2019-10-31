@@ -1,1 +1,63 @@
-list
+<% include base/head.ejs %>
+
+<% include base/nav.ejs %>
+
+<% include base/nav1.ejs %>
+
+<% include base/fixedbar.ejs%>
+
+<link rel="stylesheet" href="/name/yxw/list.css">
+<div class="c-goodlist">
+    <div class="c-goodlist-container">
+        <div class="m-secondary-navigator">
+            <span><a class="a1" href="/index">首页</a></span>
+            <span class="fa fa-chevron-right"></span>
+            <span><a class="a2" href="" id="<%= titleid %>"><%=title %></a></span>
+        </div>
+        <!-- <div class="typeGoods-item">
+            <h2>销量Top20</h2>
+            <div class="m-product-list clearfix">
+                <div class="pro-item first" target="_blank">
+                    <div class="pro-img">
+                        <img class="" src="https://img.youpin.mi-img.com/800_pic/c13ae49b289b269d9a39496e3e31708d.png@base@tag=imgScale&amp;F=webp">
+                    </div>
+                    <p class="pro-info" title="">小米手环4 标准版</p>
+                    <p class="pro-desc" title="">全新真彩屏，腕上的游泳教练，6轴传感器，心率预警</p>
+                    <p class="pro-price">
+                        <span class="pro-unit">¥</span><span class="m-num">169</span><span class="m-sale-tag">特价</span>
+                    </p>
+                </div>
+            </div>
+        </div> -->
+        <% for(let i=0;i<data2.length;i++){ %>
+            <div class="typeGoods-item" id="<%= data2[i].sub_class %>">
+                <h2><%= data2[i].sub_class %></h2>
+                <div class="m-product-list clearfix">
+                <% for(let j=0;j<data1.length;j++){ %>
+                <% if(data1[j].sub_class == data2[i].sub_class){ %>
+                    <div class="pro-item" target="_blank" id="<%= data1[j].id %>">
+                        <div class="pro-img">
+                            <img class="" src="<%= data1[j].imgsrc[0] %>">
+                        </div>
+                        <p class="pro-info" title=""><%= data1[j].title %></p>
+                        <p class="pro-desc" title=""><%= data1[j].desc %></p>
+                        <p class="pro-price">
+                            <span class="pro-unit">¥</span><span class="m-num"><%= data1[j].nowPrice %></span>
+                            <% if(data1[j].saletags){ %>
+                                <span class="m-sale-tag"><%= data1[j].saletags %></span>
+                            <% } %>
+                        </p>
+                    </div>
+                <% } %>
+                <% } %>
+            </div>
+            </div>
+        <% } %>
+    </div>
+</div>
+<script src="/name/yxw/list.js"></script>
+
+<% include base/nav2.ejs %>
+
+<% include base/foot.ejs %>
+

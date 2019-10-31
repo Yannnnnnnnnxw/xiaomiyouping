@@ -14,8 +14,8 @@ liji.onclick = function(){
 
     var datas = {
         id:$(".dataid").attr("id")-0,
-        // username:musename.innerHTML,
-        username:'yan',
+        username:musename.innerHTML,
+        // username:'yan',
         address:$("#s_province").val()+$("#s_city").val()+$("#s_county").val(),    
         count:$(".amount").val()-0,
         title:$(".title").html(),
@@ -29,8 +29,8 @@ liji.onclick = function(){
         data:datas,
         success:function(data1){
             if(data1.code){
-                // location.href=`/user/cartsure/${musename.innerHTML}`
-                location.href=`/user/cartsure/yan`
+                location.href=`/user/cartsure/${musename.innerHTML}`
+                // location.href=`/user/cartsure/yan`
             }
             console.log(1)
         },

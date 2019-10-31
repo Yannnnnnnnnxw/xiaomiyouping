@@ -266,6 +266,11 @@ button{
 .bottoma{
     margin-top:80px;
 }
+.bottoma::after{
+    content: "";
+    display: block;
+    clear: both;
+}
 .bottom_left{
     width:750px;
     /* height:14300px; */
@@ -295,7 +300,7 @@ button{
 .bottom_right{
     margin-left:30px;
     width:300px;
-    height:2000px;
+    /* height:2000px; */
     float: left;
 }
 .dianpu{

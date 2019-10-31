@@ -1,11 +1,17 @@
-<% include base/head %>
-<% include base/nav %>
-<link rel="stylesheet" href="/name/wyy/css/font-awesome.css">
+<% include base/head.ejs %>
+
+<% include base/nav.ejs %>
+
+<% include base/nav1.ejs %>
+
+<% include base/fixedbar.ejs%>
+
+<!-- <link rel="stylesheet" href="/name/wyy/css/font-awesome.css"> -->
 
 <style>
-    body{
-        width:1074px;
-        height:1500px;
+    .boxxxxxx{
+        width:1080px;
+        /* height:1500px; */
         margin:0 auto;
     }
     .tit{
@@ -356,14 +362,14 @@
         outline:none;
     }
     .price{
-        width:173px;
+        width:293px;
         text-align:right;
         color:#333;
         font-size:14px;
         margin-top:20px;
     }
     .total{
-        width:173px;
+        width:293px;
         height:20px;
         text-align:right;
         font-size:14px;
@@ -599,12 +605,16 @@
     }
     .box1 p:first-of-type{
         width:40px;
-        height:12px;
+        height:20px;
         background:#7f6044;
         color:#fff;
         font-size:9px;
         text-align:center;
         margin:3px;
+        line-height: 20px;
+    }
+    .box1>p{
+        margin-bottom: 5px;
     }
     .Pname{
         color:#333;
@@ -622,7 +632,8 @@
         margin-left:20px;
     }
 </style>
-<p class="tit"><span>首页</span> > <span>购物车</span> > <span>确认页</span></p>
+<div class="boxxxxxx">
+    <p class="tit"><span>首页</span> > <span>购物车</span> > <span>确认页</span></p>
 <p class="address">收货地址</p>
 <div class="Box">
     <div class="box1">
@@ -794,6 +805,7 @@
     </div>
 </div>
 <button id="goBuy">去下单</button>
+</div>
 
 <script>
     var box=document.getElementsByClassName('box')[0]
@@ -1116,4 +1128,6 @@
 </script>
 <script src="/javascripts/jquery.js"></script>
 <script src="/javascripts/ajax/confirm.js"></script>
-<% include base/foot %>
+<% include base/nav2.ejs %>
+
+<% include base/foot.ejs %>

@@ -1,0 +1,181 @@
+
+{
+    "sub_class" : "销量榜单",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/e3c2e6ebed890f23ecb93e163dfe322e.png?w=800&h=800",
+    "class" : "有品推荐"
+}
+{
+    "sub_class" : "米粉热搜",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/94394921a4be290a500e0250caa9f8a3.png?w=800&h=800",
+    "class" : "有品推荐"
+}
+{
+    "sub_class" : "新品推荐",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/29f38ca158038c4e8f0d38d6575964fc.jpg?_s=ks3",
+    "class" : "家用电器"
+}
+{
+    "sub_class" : "热卖榜单",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/7764c6a86edd68d6afa36eac9672c26c.jpg?w=480&h=480",
+    "class" : "家用电器"
+}
+{
+    "sub_class" : "销量Top20",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/f7df612b2eac693f8289d2f0d265681e.png?w=480&h=480",
+    "class" : "智能家庭"
+}
+{
+    "sub_class" : "安全防护必备",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/5987e06a0ee8de257adc77c04f8670b6.png?w=480&h=480",
+    "class" : "智能家庭"
+}
+{
+    "sub_class" : "人气新品",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/8ffcc430f88f200f8477c014ec8817aa.png?w=800&h=800",
+    "class" : "电视影音"
+}
+{
+    "sub_class" : "爆品推荐",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/8e74bcfaee105259b3d1d2e874c89694.png?w=800&h=800",
+    "class" : "电视影音"
+}
+{
+    "sub_class" : "爆品主推",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/765a984be8f3b2d6aeb03499ded99162.png?w=800&h=800",
+    "class" : "家具家装"
+}
+{
+    "sub_class" : "新品热推",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/30cf286399108ec22a5cd143fc98cab3.png?w=800&h=800",
+    "class" : "家具家装"
+}
+{
+    "sub_class" : "热卖好物",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/40635f3e0a47307db99c44afc0eb50d0.png?w=480&h=480",
+    "class" : "居家餐厨"
+}
+{
+    "sub_class" : "新品专区",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/035f5d37cd353dfb87756cfd8714a4df.jpg?w=480&h=480",
+    "class" : "居家餐厨"
+}
+{
+    "sub_class" : "健身器械",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/8f0c8d7350c924afad93016f5c616428.png?_s=ks3",
+    "class" : "运动户外"
+}
+{
+    "sub_class" : "体育用品",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/e4b7069dcb78ac1e68a89831dfd6ea64.png?_s=ks3",
+    "class" : "运动户外"
+}
+{
+    "sub_class" : "新品推荐",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/12d8ab271c457095dfb50909be75ecb5.png?w=480&h=480",
+    "class" : "出行车品"
+}
+{
+    "sub_class" : "电动车",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/0fd0525372ec5f89d773fadb31370ce3.png?w=480&h=480",
+    "class" : "出行车品"
+}
+{
+    "sub_class" : "热卖推荐",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/6618fe665f0163f7e2e664024055d7be.png?w=800&h=800",
+    "class" : "手机电脑"
+}
+{
+    "sub_class" : "新品推荐",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/41c0d867e86474d1c29c37465a4441c4.png?w=800&h=800",
+    "class" : "手机电脑"
+}
+{
+    "sub_class" : "新品",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/455a5f4547544a688339b55c8913f6e9.jpg?w=480&h=480",
+    "class" : "数码周边"
+}
+{
+    "sub_class" : "热卖",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/c9e352fb47978bf7a298582f226f7c84.jpg?w=480&h=480",
+    "class" : "数码周边"
+}
+{
+    "sub_class" : "新品推荐",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/7333159d15082bdf4295c88962a1cb94.png?w=480&h=480",
+    "class" : "服装配饰"
+}
+{
+    "sub_class" : "T恤",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/6c3eee60204e86fea369b2891deeaff4.png?w=480&h=480",
+    "class" : "服装配饰"
+}
+{
+    "sub_class" : "新品推荐",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/b732da40bc54fbe8667ea57c2defcf42.png?w=480&h=480",
+    "class" : "鞋靴箱包"
+}
+{
+    "sub_class" : "热卖爆品",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/117170b7c0d031a78882615649617a9a.png?w=480&h=480",
+    "class" : "鞋靴箱包"
+}
+{
+    "sub_class" : "热卖爆品",
+    "src" : "https://img.youpin.mi-img.com/goods/shop_3174cef822fd3c002e6dd1198a1ab218.png?_s=ks3",
+    "class" : "日用文创"
+}
+{
+    "sub_class" : "新品推荐",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/ccdc0ed9d1b216e70266fe12ab3d2b60.jpg?_s=ks3",
+    "class" : "日用文创"
+}
+{
+    "sub_class" : "新品",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/f71004fffb19b9c268ad54b81b7d8d5e.png?w=480&h=480",
+    "class" : "美食酒饮"
+}
+{
+    "sub_class" : "零食糕点",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/0e8a8b02ec200fda8fd699db9af02656.png?_s=ks3",
+    "class" : "美食酒饮"
+}
+{
+    "sub_class" : "新品",
+    "src" : "https://img.youpin.mi-img.com/goods/shop_ff3de7d8188513ec4b04ae7c9c7efff4.png?_s=ks3",
+    "class" : "美妆个护"
+}
+{
+    "sub_class" : "畅销爆款",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/6eaf84f50f07d5af4d6c5fce7c345c5c.png?w=480&h=480",
+    "class" : "美妆个护"
+}
+{
+    "sub_class" : "智能健康",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/44b25a3fd752321a7ec11e874bd3d7f4.png?_s=ks3",
+    "class" : "健康保健"
+}
+{
+    "sub_class" : "新品推荐",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/47522ac06609350abe2ce1770df1b69d.png?w=480&h=480",
+    "class" : "健康保健"
+}
+{
+    "sub_class" : "婴童上新",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/bb0c220897fbbb2aa3b0212fc54cec73.jpg?w=480&h=480",
+    "class" : "母婴亲子"
+}
+{
+    "sub_class" : "玩具",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/41098d1317639f562131f752e15c79f4.png?_s=ks3",
+    "class" : "母婴亲子"
+}
+{
+    "sub_class" : "宠物智能",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/41917d8943d0631b5e06c6636008d32d.jpg?_s=ks3",
+    "class" : "宠物生活"
+}
+{
+    "sub_class" : "主粮零食",
+    "src" : "https://img.youpin.mi-img.com/miio_album_pics/5265cf594729c314d9a9f97c3b6cc191.jpg?w=200&h=200",
+    "class" : "宠物生活"
+}

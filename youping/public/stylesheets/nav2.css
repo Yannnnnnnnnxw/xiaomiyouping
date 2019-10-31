@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.foot-nav{
+    box-sizing: content-box;
+    width: 100%;
+    height:90px;
+    padding-top: 45px;
+    border-top: 1px solid #e7e7e7;
+    background-color:#fff;
+    color: #666;
+    font-size: 14px;
+}
+.fnav-container{
+    width: 1080px;
+    height: 90px;
+    margin: 0 auto;
+}
+.m-f-logo{
+    width: 148px;
+    height: 45px;
+}
+.m-f-logo>img{
+    width: 100%;
+}
+.f-info{
+    position: relative;
+    padding-right: 138px;
+    font-size: 12px;
+}
+.f-info a{
+    color: #666;
+}
+.f-info a:hover{
+    color: #CFA13F;
+}
+.f-icons{
+    position: absolute;
+    top: 4px;
+    right: 0;
+    padding-left: 14px;
+    width: 100px;
+    height: 36px;
+}
+.f-icons img{
+    width: 100%;
+}
+.footer-item{
+    height: 23px;
+    line-height: 23px;
+}
+.footer-item>span{
+    margin-right: 5px;
+}

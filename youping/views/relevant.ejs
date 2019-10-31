@@ -1,0 +1,656 @@
+<% include base/head.ejs %>
+<link href="/stylesheets/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="/name/wdy/css/font-awesome.css">
+
+
+
+<style>
+    li{
+        list-style: none;
+    }
+    body{
+         background: #FAFAFA;
+    }
+    .top{
+        margin-top:50px;
+    }
+    .top>span{
+        margin-right:5px;
+    }
+    .top>span:nth-of-type(1){
+        margin-left:30px;
+    }
+    .top>span:nth-of-type(5){
+        color:#999999;
+    }
+    .bottom{
+        margin-top: 30px;
+        width:1080px;
+        /* height:700px; */
+    }
+    .bottom_left{
+        float: left;
+    }
+    .bottom_left_top{
+        width:150px;
+        height:150px;
+        background: rgb(255, 255, 255);
+    }
+    .user-circle{
+        font-size:50px;
+        color:#E7E7E7;
+    }
+    .yonghu{
+        text-align: center;
+        padding-top:40px;
+    }
+    .bottom_left_top>p:nth-of-type(2){
+        text-align: center;
+    }
+    .bottom_left_bottom{
+        width:150px;
+        height:548px;
+        background:#fff;
+        margin-top:2px;
+        padding:50px 30px 0 5px;
+    }
+    .circle{
+        font-size: 6px;
+        margin-left:30px;
+        display: none;
+
+    }
+    .bottom_left_bottom>p{
+        width:130px;
+        height:30px;
+        margin-bottom: 30px;
+        /* position: relative; */
+        /* border:1px solid black; */
+    }
+    .mycircle{
+        float: right;
+        margin-right:30px;
+    }
+    .mycircle:hover{
+        cursor: pointer;
+    }
+    .bottom_right{
+        width:850px;
+        /* height:700px; */
+        background:rgb(255, 255, 255);
+        float: left;
+        margin-left:10px;
+        display: none;
+    }
+    .fenlei>li{
+        float: left;
+        margin-left:30px;
+        margin-top:35px;
+        font-size: 16px;
+    }
+    .fenlei:hover{
+        cursor:pointer;
+    }
+    .huishou{
+        float:right;
+        margin-right:30px;
+        margin-top:35px;
+        font-size: 16px;
+    }
+    .trash-o{
+        margin-right:5px;
+    }
+    .bottom_right_top{
+        height:70px;
+        border-bottom:1px solid #E7E7E7;
+    }
+    /* .neirong1{
+        display: none;
+    } */
+    /* .nr{
+        display: block;
+    } */
+    .neirong>img{
+        width:150px;
+        margin-top:150px;
+        margin-left:350px;
+    }
+    .neirong>p{
+        margin-left:370px;
+        margin-top:10px;
+        padding-bottom: 300px;
+    }
+    .youhuiquan{
+        color:#845F3F;
+        margin-left:50px;
+        margin-top:50px;
+        font-size: 20px;
+        border-bottom:1px solid #E7E7E7;
+        width:750px;
+        padding-bottom:10px;
+    }
+    .duihuan{
+        margin-top:30px;
+        border-bottom:1px dotted rgb(206, 204, 204);
+        margin:30px 0 0 50px ;
+        padding-bottom: 20px;
+        width:750px;
+    }
+    .duihuan>input{
+        width:200px;
+        height:35px;
+    }
+    .duihuan>button{
+        background:#845F3F ;
+        color:#fff;
+        width:100px;
+        height:35px;
+        border:1px solid #845F3F;
+        margin-left:10px;
+    }
+    .shiyong{
+        margin:30px 0 0 70px;
+    }
+    .shiyong>span{
+        margin-right:30px;
+        font-size: 15px;
+    }
+    .shiyong>span:hover{
+        cursor:pointer;
+    }
+    .shiyong_bottom{
+        margin-left:50px;
+        display: none;
+    }
+    .shiyong_bottom>img{
+        width:150px;
+        margin-top:150px;
+        margin-left:300px;
+    }
+    .shiyong_bottom>p{
+        margin-left:320px;
+        margin-top:10px;
+        padding-bottom: 300px;
+    }
+    .sy{
+        display: block;
+    }
+    .shoucang{
+        color:#845F3F;
+        margin-left:50px;
+        margin-top:50px;
+        font-size: 20px;
+        border-bottom:1px solid #E7E7E7;
+        width:750px;
+        padding-bottom:10px;
+    }
+    .shoucang_shuju>img{
+        width:150px;
+        margin-top:150px;
+        margin-left:300px;
+    }
+    .shoucang_shuju>p{
+        margin-left:305px;
+        margin-top:10px;
+        padding-bottom: 300px;
+    }
+    .shop{
+        border:1px solid rgb(255, 255, 255);
+        width:750px;
+        height:260px;
+        margin-left:50px;
+        margin-top:30px;
+    }
+    .shop_top>p:nth-of-type(1){
+        float: left;
+    }
+    .shop_top>p:nth-of-type(2){
+        float: right;
+        color:#845F3F;
+    }
+    .shop_top::after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+    .shop_center{
+        width:750px;
+        height:80px;
+        border:1px solid rgb(255, 255, 255);
+        margin-top:20px;
+        margin-bottom: 40px;
+    }
+    .shop_center>img{
+        height:100%;
+    }
+    .shop_center>span{
+        margin-left:30px;
+    }
+    .shop_bottom{
+        border-top:1px dotted rgb(216, 216, 216);
+        border-bottom:1px dotted rgb(216, 216, 216);
+        padding:20px;
+    }
+    .shop_bottom::after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+    .shop_bottom>button{
+        width:120px;
+        height:40px;
+        background:#fff;
+        border:1px solid black;
+        float: right;
+    }
+    .dizhi{
+        color:#845F3F;
+        margin-left:50px;
+        margin-top:50px;
+        font-size: 20px;
+        border-bottom:1px solid #E7E7E7;
+        width:750px;
+        padding-bottom:10px;
+    }
+    .jiadizhi{
+        width: 180px;
+        height: 180px;
+        border: 1px solid #E7E7E7;
+        margin:20px 0 400px 60px;
+    }
+    .jia{
+        font-size:50px;
+        margin-top:30px;
+        text-align: center;
+        color: #E7E7E7;
+    }
+    .tianjia{
+        text-align: center;
+        color: #E7E7E7;
+    }
+    .br{
+        display: block;
+    }
+    .ffc{
+        display:inline-block;
+    }
+    .daishou{
+        border:1px solid rgb(255, 255, 255);
+        width:750px;
+        height:310px;
+        margin-left:50px;
+        margin-top:30px;
+    }
+    .boxx1{
+        display: none;
+    }
+    .daishou1{
+        display: block;
+    }
+    .daishou_top>p:nth-of-type(1){
+        float: left;
+    }
+    .daishou_top>p:nth-of-type(2){
+        float: right;
+        color:#845F3F;
+    }
+    .daishou_top::after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+    .daishou_center{
+        width:750px;
+        height:100px;
+        border:1px solid rgb(255, 255, 255);
+        margin-top:20px;
+        margin-bottom: 40px;
+    }
+    .daishou_center_left{
+        width:110px;
+        height:100px;
+        border:1px solid rgb(255, 255, 255);
+        float: left;
+    }
+    .daishou_center_left>img{
+        width:100%;
+        height:100%;
+    }
+    .daishou_center_center{
+        width:450px;
+        height:100px;
+        border:1px solid rgb(255, 255, 255);
+        float:left;
+        padding-left:20px;
+    }
+    .daishou_center_center>p:nth-of-type(1){
+        line-height: 100px;
+    }
+    .daishou_center_center>p:nth-of-type(2){
+        margin-top:-45px;
+        color:red;
+    }
+    .daishou_center_right{
+        width:150px;
+        height:100px;
+        border:1px solid rgb(255, 255, 255);
+        float: right;
+    }
+    .daishou_center_right>p{
+        line-height: 100px;
+        text-align: right;
+    }
+    .daishou_bottom{
+        border-top:1px dotted rgb(216, 216, 216);
+        border-bottom:1px dotted rgb(216, 216, 216);
+        padding:20px;
+        position: relative;
+        height:90px;
+    }
+    .queren{ 
+        position: absolute;
+        right:0;
+        top:10px;
+    }
+    .daishou_bottom_bottom>button{
+        margin-left:20px;
+        background: #fff;
+        border:1px solid #845F3F;
+        padding:5px 10px;
+    }
+    .daishou_bottom_bottom>button:nth-of-type(1):hover{
+        color:#fff;
+        background: #845F3F;
+    }
+    .daishou_bottom_bottom>button:nth-of-type(2){
+        color:#fff;
+        background: #845F3F;
+    }
+    .daishou_bottom_bottom>button:nth-of-type(2):hover{
+        background: #D1BFA6;
+    }
+    .dengdai:nth-of-type(1){
+        color:#845F3F;
+    }
+</style>
+
+    <div  class="container top">
+        <span>首页</span>
+        <span>></span>
+        <span>个人中心</span>
+        <span>></span>
+        <span>我的订单</span>
+    </div>
+    <div class="container bottom">
+        <div class="bottom_left">
+            <div class="bottom_left_top">
+                <p class="yonghu"><i class="fa fa-user-circle user-circle"></i></p>
+                <p class="uuuname"></p>
+            </div>
+            <div class="bottom_left_bottom">
+                <p><i class="fa fa-circle circle ffc"></i><span class="mycircle">我的订单</span></p>
+                <p><i class="fa fa-circle circle"></i><span class="mycircle">我的资产</span></p>
+                <p><i class="fa fa-circle circle"></i><span class="mycircle">我的收藏</span></p>
+                <p><i class="fa fa-circle circle"></i><span class="mycircle">地址管理</span></p>
+            </div>
+        </div>
+        <div class="bottom_right br">
+            <div class="bottom_right_top">
+                <ul class="fenlei">
+                    <li class="dengdai">待收货(<%=data1.length%>)</li>
+                    <li class="dengdai">待付款(<%=data2.length%>)</li>
+                    <li class="dengdai">已发货</li>
+                    <li class="dengdai">退款订单</li>
+                    <li class="dengdai">全部订单</li>
+                </ul>
+                <p class="huishou"><i class="fa fa-trash-o trash-o"></i><span>回收站</span></p>
+            </div>
+
+
+            <div class="boxx1 daishou1">
+                <%if(data1.length != 0){%>
+                    <%for(let i=0;i<data1.length;i++){%>
+                        <div class="daishou neirong">
+                            <div class="daishou_top">
+                                <p><span>订单日期:<%=data1[i].time%></span></p>
+                                <p>待收货</p>
+                            </div>
+                            <%for(let j=0;j<data1[i].goods.length;j++){%>
+                                <div class="daishou_center">
+                                    <div class="daishou_center_left">
+                                        <img src="<%=data1[i].goods[j].imgsrc%>" alt="">
+                                    </div>
+                                    <div class="daishou_center_center">
+                                        <p><%=data1[i].goods[j].title%></p>
+                                        <p><span>￥</span><span><%=data1[i].goods[j].price%></span></p>
+                                    </div>
+                                    <div class="daishou_center_right">
+                                        <p><span>X</span> <span><%=data1[i].goods[j].count%></span></p>
+                                    </div>
+                                </div>
+                            <%}%>    
+                            <div class="daishou_bottom">
+                                <div class="queren">
+                                    <div class="daishou_bottom_top">
+                                        <p>共计<span><%=data1[i].goods.length%></span>件商品，订单总金额:<span><%=data1[i].totalPrice%></span>元</p>
+                                    </div>
+                                    <div class="daishou_bottom_bottom">
+                                        <button>物流信息</button>
+                                        <button>确认收货</button>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                    <%}%>
+                <%}else{%>
+                    <div class="neirong nr">
+                        <img src="/name/wdy/images/dingdan.png" alt="">
+                        <p>没有相应订单数据</p>
+                    </div>
+                <%}%>
+            </div>
+            
+
+
+            <div class="boxx1">
+                <%if(data2.length != 0){%>
+                    <%for(let i=0;i<data2.length;i++){%>
+                        <div class="daishou neirong">
+                            <div class="daishou_top">
+                                <p><span class="data3">订单日期:<span class="datatime"> <%=data2[i].time%></span></span></p>
+                                <p>待付款</p>
+                            </div>
+                            <%for(let j=0;j<data2[i].goods.length;j++){%>
+                                <div class="daishou_center">
+                                    <div class="daishou_center_left">
+                                        <img src="<%=data2[i].goods[j].imgsrc%>" alt="">
+                                    </div>
+                                    <div class="daishou_center_center">
+                                        <p><%=data2[i].goods[j].title%></p>
+                                        <p><span>￥</span><span><%=data2[i].goods[j].price%></span></p>
+                                    </div>
+                                    <div class="daishou_center_right">
+                                        <p><span>X</span> <span><%=data2[i].goods[j].count%></span></p>
+                                    </div>
+                                </div>
+                            <%}%>    
+                            <div class="daishou_bottom">
+                                <div class="queren">
+                                    <div class="daishou_bottom_top">
+                                        <p>共计<span><%=data2[i].goods.length%></span>件商品，订单总金额:<span><%=data2[i].totalPrice%></span>元</p>
+                                    </div>
+                                    <div class="daishou_bottom_bottom">
+                                        <button>取消订单</button>
+                                        <button class="pay">去支付</button>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                    <%}%>
+                <%}else{%>
+                    <div class="neirong nr">
+                        <img src="/name/wdy/images/dingdan.png" alt="">
+                        <p>没有相应订单数据</p>
+                    </div>
+                <%}%>
+            </div>
+
+            <div class="boxx1">
+                <div class="neirong">
+                    <img src="/name/wdy/images/dingdan.png" alt="">
+                    <p>没有相应订单数据</p>
+                </div>
+            </div>
+            <div class="boxx1">
+                <div class="neirong">
+                    <img src="/name/wdy/images/dingdan.png" alt="">
+                    <p>没有相应订单数据</p>
+                </div>
+            </div>
+            <div class="boxx1">
+                <div class="neirong">
+                    <img src="/name/wdy/images/dingdan.png" alt="">
+                    <p>没有相应订单数据</p>
+                </div>
+            </div>
+            
+        </div>
+        <div class="bottom_right">
+            <p class="youhuiquan">优惠券</p>
+            <div class="duihuan">
+                <input type="text" placeholder="请输入优惠码">
+                <button>确认兑换</button>
+            </div>
+            <p class="shiyong"><span class="keshi">可使用</span><span  class="keshi">不可使用</span></p>
+            <div class="shiyong_bottom sy">
+                <img src="/name/wdy/images/dingdan.png" alt="">
+                <p>没有相应订单数据</p>
+            </div>
+            <div class="shiyong_bottom">
+                <img src="/name/wdy/images/dingdan.png" alt="">
+                <p>没有相应订单数据</p>
+            </div>
+        </div>
+        <div class="bottom_right">
+            <p class="shoucang">我的收藏</p>
+
+            <% if(data.length != 0){ %>
+                <% for(z=0;z<data.length;z++){ %>
+                    <div class="shop">
+                        <div class="shop_top">
+                            <p><span>收藏日期:<%= data[z].date %></span></p>
+                            <p>已收藏</p>
+                        </div>
+                        <div class="shop_center">
+                            <img src="<%= data[z].imgsrc %>" alt="">
+                            <span><%= data[z].title %></span>
+                        </div>
+                        <div class="shop_bottom" id="<%= data[z].id%>">
+                            <button>查看商品</button>
+                        </div>
+                    </div>
+                <% } %>
+            <% }else{ %>
+                <div class="shoucang_shuju">
+                    <img src="/name/wdy/images/yincang.png" alt="">
+                    <p>您还没有收藏任何产品</p>
+                </div>
+            <% } %>
+        </div>
+        <div class="bottom_right">
+            <p class="dizhi">地址管理</p>
+            <div class="jiadizhi">
+                <p class="jia">+</p>
+                <p class="tianjia">添加新地址</p>
+
+            </div>
+        </div>
+    </div>
+<script>
+    $('.uuuname').html($('.m-username').html())
+var circle=document.getElementsByClassName('circle')
+var mycircle=document.getElementsByClassName('mycircle')
+var br=document.getElementsByClassName('bottom_right')
+var b=0
+for(var j=0;j<mycircle.length;j++){
+    mycircle[j].index=j
+    mycircle[j].onclick=function(){ 
+        mycircle[b].style.color='black'
+        circle[b].style.display='none'
+        br[b].style.display='none'
+        circle[this.index].style.display='inline-block'
+        br[this.index].style.display='block'
+        b=this.index
+        mycircle[this.index].style.color='#845F3F'
+    }
+}
+
+var dengdai=document.getElementsByClassName('dengdai')
+var boxx1=document.getElementsByClassName('boxx1')
+var a=0
+for(var i=0;i<dengdai.length;i++){
+    dengdai[i].index=i
+    dengdai[i].onclick=function(){ 
+        dengdai[a].style.color='black'
+        dengdai[this.index].style.color='#845F3F'
+        boxx1[a].style.display='none'
+        boxx1[this.index].style.display='block'
+        a=this.index
+       
+    }
+}
+
+var keshi=document.getElementsByClassName('keshi')
+var ssy=document.getElementsByClassName('shiyong_bottom')
+var c=0
+for(var k=0;k<keshi.length;k++){
+    keshi[k].index=k
+    keshi[k].onclick=function(){ 
+        keshi[c].style.color='black'
+        keshi[this.index].style.color='#845F3F'
+        ssy[c].style.display='none'
+        ssy[this.index].style.display='inline-block'
+        c=this.index
+       
+    }
+}
+
+var jiadizhi=document.getElementsByClassName('jiadizhi')[0]
+var jia=document.getElementsByClassName('jia')[0]
+var tianjia=document.getElementsByClassName('tianjia')[0]
+
+    jiadizhi.onmouseover=function(){
+        jiadizhi.style.borderColor="#845F3F"
+        jia.style.color="#845F3F"
+        tianjia.style.color="#845F3F"
+    }
+    jiadizhi.onmouseleave=function(){
+        jiadizhi.style.borderColor="#E7E7E7"
+        jia.style.color="#E7E7E7"
+        tianjia.style.color="#E7E7E7"
+    }
+
+var shop_bottom = document.querySelectorAll('.shop_bottom')
+var btnn = document.querySelectorAll('.shop_bottom>button')
+for(let i=0;i<btnn.length;i++){
+    btnn[i].onclick=function(){
+        location.href = `/index/info/${shop_bottom[i].id}`
+    }
+}
+
+var pay = document.querySelectorAll('.pay')
+var datatime = document.querySelectorAll('.datatime')
+for(let i=0;i<pay.length;i++){
+    pay[i].onclick=function(){
+        location.href=`/user/pay/${$('.m-username').html()}/${datatime[i].innerHTML}`
+    }
+}
+
+
+
+
+
+</script>
+
+
+<% include base/foot.ejs %>

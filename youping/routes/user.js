@@ -14,4 +14,8 @@ Router.get('/cartsure/:username',require('../controller/confirm'))
 Router.get('/pay',require('../controller/pay'))
 Router.get('/pay/:username/:time',require('../controller/pay'))
 
+
+// wdy
+Router.get('/collection',require('../controller/collection'))
+
 module.exports = Router

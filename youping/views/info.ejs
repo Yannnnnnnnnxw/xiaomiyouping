@@ -1,1 +1,696 @@
-info
+<% include base/head.ejs %>
+<script src="/name/wdy/javascripts/area.js"></script>
+<link href="/stylesheets/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<script src="/name/wdy/javascripts/jquery.min.js"></script>
+<link href="/stylesheets/style.css" rel="stylesheet" type="text/css" media="all" />	
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link rel="stylesheet" href="/name/wdy/css/etalage.css">
+<script src="/name/wdy/javascripts/jquery.etalage.min.js"></script>
+<link rel="stylesheet" href="/name/wdy/css/font-awesome.css">
+<link rel="stylesheet" href="/name/wdy/css/info.css">
+<script src="/name/wdy/javascripts/layer.js"></script>
+<script>
+	jQuery(document).ready(function($){
+		$('#etalage').etalage({
+			thumb_image_width: 360,
+			thumb_image_height: 360,
+			source_image_width: 1000,
+			source_image_height: 800,
+			show_hint: true,
+			click_callback: function(image_anchor, instance_id){
+				alert('Callback example:\nYou clicked on an image with the anchor: "'+image_anchor+'"\n(in Etalage instance: "'+instance_id+'")');
+			}
+		});
+	});
+</script>
+<div class="container dataid" id="<%= data.id %>">
+	<ul id="etalage">
+		<% for(let i=0;i<data.imgsrc.length;i++){ %>
+			<li style="width:360px;">
+				<img class="etalage_thumb_image " src="<%= data.imgsrc[i]  %>" alt="" >
+				<img class="etalage_source_image " src="<%= data.imgsrc[i]  %>" alt="" >
+			</li>
+		<% } %>
+	</ul>
+	<div class='right'>
+		<p class="title"><%= data.title %></p>                    <!-- 名称 -->
+		<p class="liquan"><%= data.staticWords %></p>
+		<p class="introduce"><%= data.desc %></p> 				  <!-- 介绍 -->
+		<% if(data.nameDesc){ %>
+			<p class="namedesc"><%= data.nameDesc %></p>
+		<% } %>
+		<div class="sale">
+			<div class="sale_left">
+				<br><br><p class='shoujia'>售价</p>
+				<br><p class="fuwu">服务 <i class="fa fa-exclamation circle"></i></p>
+			</div>
+			<div class="sale_right">
+				<br><p class="price"><span class="rmb">￥</span><span class='nub'><%= data.nowPrice %></span>  <!-- 价钱 -->
+					<% if(data.oldPrice){ %>
+					<span class="oldprice">￥<%= data.oldPrice %></span>
+					<% } %>
+					
+					<% if(data.saletags){ %>
+					<span class="saletags"><%= data.saletags %></span>
+					<% } %>	
+				</p> 				
+				<p class='service'></p>
+					<% for(let j=0;j<data.services.length-1;j++){ %>
+							<i class="fa fa-check-circle-o check-circle-o"> </i> <span> <%= data.services[j] %></span>&nbsp;
+						<% } %>
+				</p>
+				<p class='service'><i class="fa fa-check-circle-o check-circle-o"> </i> <span><%= data.services[data.services.length-1] %></span>&nbsp;<span class="chakan">(查看商家资质)</span></p>
+			</div>
+		</div>
+
+		<div class="info">
+			<div>
+				<span class="peisong">配送区域：</span>
+				<select id="s_province" name="s_province"></select>  
+				<select id="s_city" name="s_city" ></select>  
+				<select id="s_county" name="s_county"></select>
+				<script class="resources library" src="/name/wdy/javascripts/area.js" type="text/javascript"></script>
+				<script type="text/javascript">_init_area();</script>
+			</div>
+			<div id="show"></div>
+		</div>
+		<!-- 商品属性 -->
+		<% for(var z=0;z<data.shopTags.length;z++){ %>
+			<p class="shuxing">
+				<span class="color"><%= data.shopTags[z].name %></span>
+				<% for(var k=0;k<data.shopTags[z].tags.length;k++){ %>
+					<button class="tags"><%= data.shopTags[z].tags[k] %></button>
+				<% } %>
+			</p>
+		<% } %>
+
+		<p class="num"><span>数量</span><button class='minus'>-</button><input class='amount' type="number" value='1'><button class="addition">+</button></p>
+		<button class="jiaru">加入购物车</button>
+		<button class="liji">立即购买</button>
+		
+		<% if(code.code){ %>
+			<div class="Collection none">
+				<i class="fa fa-star-o"></i>
+				<p>收藏</p>
+			</div>
+			<div class="Collection1 block">
+				<i class="fa fa-star"></i>
+				<p>已收藏</p>
+		</div>
+		<% }else{ %>
+			<div class="Collection block">
+				<i class="fa fa-star-o"></i>
+				<p>收藏</p>
+			</div>
+			<div class="Collection1 none">
+				<i class="fa fa-star"></i>
+				<p>已收藏</p>
+			</div>
+		<% } %>
+		<div class="kefu">
+			<i class="fa fa-user-o"></i>
+			<p>客服</p>
+		</div>
+	</div>
+</div>
+<div class="container bottoma">
+	<div class="bottom_left">
+		<div class="bottom_left_top">
+			<span class="dianji">产品介绍</span>
+			<span >|</span>
+			<span class="dianji">评论</span>
+			<span>|</span>
+			<span class="dianji">常见问题</span>
+		</div>
+		<div class='jieshao dianjihou'>
+			<% for(let k=0;k<data.services.length;k++){ %>
+				<img src="<%= data.introduction[k] %>" alt="">
+			<% } %>
+		</div>
+		<div class="comment dianjihou">
+			<div class="comment_top">
+				<p>99%满意</p>
+				<p>用户评价：<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+			</div>
+			<div class="comment_center">
+				<button class="comment_center_quan">全部(1346)</button>
+				<button class="comment_center_quan">有图(43)</button>
+				<button class="comment_center_quan">质量好(12)</button>
+				<button class="comment_center_quan">包装好(11)</button>
+				<button class="comment_center_quan">高性价比(10)</button>
+				<button class="comment_center_quan">漂亮美观(1)</button>
+				<div class="comment_kehu ckh">
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">染*酱</p>
+						<p class="kehu_time">2019-05-23&nbsp;13:33</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">珏*卡</p>
+						<p class="kehu_time">2019-07-20&nbsp;23:13</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">刘*方</p>
+						<p class="kehu_time">2019-07-23&nbsp;11:21</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">1****7845</p>
+						<p class="kehu_time">2019-07-25&nbsp;12:21</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">染*酱</p>
+						<p class="kehu_time">2019-05-23&nbsp;13:33</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">珏*卡</p>
+						<p class="kehu_time">2019-07-20&nbsp;23:13</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">刘*方</p>
+						<p class="kehu_time">2019-07-23&nbsp;11:21</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">1****7845</p>
+						<p class="kehu_time">2019-07-25&nbsp;12:21</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">染*酱</p>
+						<p class="kehu_time">2019-05-23&nbsp;13:33</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">珏*卡</p>
+						<p class="kehu_time">2019-07-20&nbsp;23:13</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">刘*方</p>
+						<p class="kehu_time">2019-07-23&nbsp;11:21</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">1****7845</p>
+						<p class="kehu_time">2019-07-25&nbsp;12:21</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+				</div>
+				<div class="comment_kehu">
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">萧*史</p>
+						<p class="kehu_time">2019-03-23&nbsp;11:03</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">珏*卡</p>
+						<p class="kehu_time">2019-07-20&nbsp;23:13</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">刘*方</p>
+						<p class="kehu_time">2019-07-23&nbsp;11:21</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">1****7845</p>
+						<p class="kehu_time">2019-07-25&nbsp;12:21</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">染*酱</p>
+						<p class="kehu_time">2019-05-23&nbsp;13:33</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">珏*卡</p>
+						<p class="kehu_time">2019-07-20&nbsp;23:13</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">刘*方</p>
+						<p class="kehu_time">2019-07-23&nbsp;11:21</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">1****7845</p>
+						<p class="kehu_time">2019-07-25&nbsp;12:21</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+				</div>
+				<div class="comment_kehu">
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">137****1067</p>
+						<p class="kehu_time">2019-08-13&nbsp;09:26</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物运送速度很快，很满意的一次购物质量很好</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">珏*卡</p>
+						<p class="kehu_time">2019-07-20&nbsp;23:13</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">刘*方</p>
+						<p class="kehu_time">2019-07-23&nbsp;11:21</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">1****7845</p>
+						<p class="kehu_time">2019-07-25&nbsp;12:21</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">染*酱</p>
+						<p class="kehu_time">2019-05-23&nbsp;13:33</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">珏*卡</p>
+						<p class="kehu_time">2019-07-20&nbsp;23:13</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+				</div>
+				<div class="comment_kehu">
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">阿*顿</p>
+						<p class="kehu_time">2019-06-03&nbsp;11:11</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">珏*卡</p>
+						<p class="kehu_time">2019-07-20&nbsp;23:13</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">刘*方</p>
+						<p class="kehu_time">2019-07-23&nbsp;11:21</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">1****7845</p>
+						<p class="kehu_time">2019-07-25&nbsp;12:21</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">染*酱</p>
+						<p class="kehu_time">2019-05-23&nbsp;13:33</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">珏*卡</p>
+						<p class="kehu_time">2019-07-20&nbsp;23:13</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">刘*方</p>
+						<p class="kehu_time">2019-07-23&nbsp;11:21</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">1****7845</p>
+						<p class="kehu_time">2019-07-25&nbsp;12:21</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+				</div>
+				<div class="comment_kehu">
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">深*啡</p>
+						<p class="kehu_time">2018-12-23&nbsp;13:33</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">非常满意，完全超出期望值，发货速度非常快，包装非常仔细，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">珏*卡</p>
+						<p class="kehu_time">2019-07-20&nbsp;23:13</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">刘*方</p>
+						<p class="kehu_time">2019-07-23&nbsp;11:21</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">1****7845</p>
+						<p class="kehu_time">2019-07-25&nbsp;12:21</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">染*酱</p>
+						<p class="kehu_time">2019-05-23&nbsp;13:33</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快，很满意的一次购物质量很好，希望更多的朋友信赖．店主态度特</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+				</div>
+				<div class="comment_kehu">
+					<div class="kehu">
+						<i class="fa fa-user-circle user-circle"></i>
+						<p class="ran">188****2934</p>
+						<p class="kehu_time">2019-03-23&nbsp;10:33</p>
+						<p class="kehu_haopin"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+						<p class="kehu_yu">质量非常好，与卖家描述的完全一致，非常满意，完全超出期望值，发货速度非常快，包装非常仔细,物流公司服务态度很好，运送速度很快</p>
+						<img src="/name/wdy/images/pinglun.jpg" alt="">
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="common dianjihou">
+			<img src="/name/wdy/images/47.jpg" alt="">
+			<img src="/name/wdy/images/48.jpg" alt="">
+			<img src="/name/wdy/images/49.jpg" alt="">
+		</div>
+	</div>
+	<div class="bottom_right">
+		<div class='dianpu'>
+			<div class="dianpu_left">
+				<img src="/name/wdy/images/dianpu.jpg" alt="">
+			</div>
+			<div class="dianpu_center">
+				<p>知味轩</p>
+				<p>引领绿色、健康的生活方式</p>
+			</div>
+			<button class="jinru">进入</button>
+		</div>
+		<div class="xiangguan">
+			<span>——&nbsp; </span>
+			<span>&nbsp; 相关推荐&nbsp; </span>
+			<span>&nbsp; ——</span>
+		</div>
+		<div class="chanpin">
+			<div class="chanpin_top">
+				<img src="/name/wdy/images/guazi.png" alt="">
+			</div>
+			<p>新疆黑葵产区，颗粒饱满,香脆可口</p>
+			<div class="chanpin_bottom">
+				<p>玉墨黑瓜子</p>
+				<p><span>￥</span><span class="jiaqian">12.8</span></p>
+			</div>
+		</div>
+		<div class="chanpin">
+			<div class="chanpin_top">
+				<img src="/name/wdy/images/39.png" alt="">
+			</div>
+			<p>颗粒饱满,壳薄易磕，香脆可口</p>
+			<div class="chanpin_bottom">
+				<p>社会制馃 五香葵花子</p>
+				<p><span>￥</span><span class="jiaqian">11.9</span></p>
+			</div>
+		</div>
+		<div class="chanpin">
+			<div class="chanpin_top">
+				<img src="/name/wdy/images/40.png" alt="">
+			</div>
+			<p>精选食材，慢烘轻烤，休闲即食</p>
+			<div class="chanpin_bottom">
+				<p>社会制馃 海盐坚果系列</p>
+				<p><span>￥</span><span class="jiaqian">29</span></p>
+			</div>
+		</div>
+		<div class="chanpin">
+			<div class="chanpin_top">
+				<img src="/name/wdy/images/41.png" alt="">
+			</div>
+			<p>江苏省农科院支持，不加糖即饮</p>
+			<div class="chanpin_bottom">
+				<p>一支米昔 五彩豆薏仁粉</p>
+				<p><span>￥</span><span class="jiaqian">23.9</span></p>
+			</div>
+		</div>
+		<div class="chanpin">
+			<div class="chanpin_top">
+				<img src="/name/wdy/images/42.png" alt="">
+			</div>
+			<p>优质谷物，爽脆外壳，软糯夹心</p>
+			<div class="chanpin_bottom">
+				<p>谷物夹心米果</p>
+				<p><span>￥</span><span class="jiaqian">43.5</span></p>
+			</div>
+		</div>
+		<div class="chanpin">
+			<div class="chanpin_top">
+				<img src="/name/wdy/images/43.png" alt="">
+			</div>
+			<p>纯正俄罗斯风味，网红巧克力</p>
+			<div class="chanpin_bottom">
+				<p>KDV俄罗斯紫皮糖</p>
+				<p><span>￥</span><span class="jiaqian">19.9</span></p>
+			</div>
+		</div>
+		<div class="chanpin">
+			<div class="chanpin_top">
+				<img src="/name/wdy/images/44.png" alt="">
+			</div>
+			<p>澳大利亚阳光海岸，香脆可口</p>
+			<div class="chanpin_bottom">
+				<p>夏威夷果袋坚果</p>
+				<p><span>￥</span><span class="jiaqian">19.9</span></p>
+			</div>
+		</div>
+		<div class="chanpin">
+			<div class="chanpin_top">
+				<img src="/name/wdy/images/39.png" alt="">
+			</div>
+			<p>颗粒饱满,壳薄易磕，香脆可口</p>
+			<div class="chanpin_bottom">
+				<p>社会制馃 五香葵花子</p>
+				<p><span>￥</span><span class="jiaqian">11.9</span></p>
+			</div>
+		</div>
+		<div class="chanpin">
+			<div class="chanpin_top">
+				<img src="/name/wdy/images/40.png" alt="">
+			</div>
+			<p>精选食材，慢烘轻烤，休闲即食</p>
+			<div class="chanpin_bottom">
+				<p>社会制馃 海盐坚果系列</p>
+				<p><span>￥</span><span class="jiaqian">29</span></p>
+			</div>
+		</div>
+		<div class="chanpin">
+			<div class="chanpin_top">
+				<img src="/name/wdy/images/41.png" alt="">
+			</div>
+			<p>江苏省农科院支持，不加糖即饮</p>
+			<div class="chanpin_bottom">
+				<p>一支米昔 五彩豆薏仁粉</p>
+				<p><span>￥</span><span class="jiaqian">23.9</span></p>
+			</div>
+		</div>
+		<div class="chanpin">
+			<div class="chanpin_top">
+				<img src="/name/wdy/images/42.png" alt="">
+			</div>
+			<p>优质谷物，爽脆外壳，软糯夹心</p>
+			<div class="chanpin_bottom">
+				<p>谷物夹心米果</p>
+				<p><span>￥</span><span class="jiaqian">43.5</span></p>
+			</div>
+		</div>
+		<div class="chanpin">
+			<div class="chanpin_top">
+				<img src="/name/wdy/images/43.png" alt="">
+			</div>
+			<p>纯正俄罗斯风味，网红巧克力</p>
+			<div class="chanpin_bottom">
+				<p>KDV俄罗斯紫皮糖</p>
+				<p><span>￥</span><span class="jiaqian">19.9</span></p>
+			</div>
+		</div>
+		<div class="chanpin">
+			<div class="chanpin_top">
+				<img src="/name/wdy/images/44.png" alt="">
+			</div>
+			<p>澳大利亚阳光海岸，香脆可口</p>
+			<div class="chanpin_bottom">
+				<p>夏威夷果袋坚果</p>
+				<p><span>￥</span><span class="jiaqian">19.9</span></p>
+			</div>
+		</div>
+		<div class="chanpin">
+			<div class="chanpin_top">
+				<img src="/name/wdy/images/39.png" alt="">
+			</div>
+			<p>颗粒饱满,壳薄易磕，香脆可口</p>
+			<div class="chanpin_bottom">
+				<p>社会制馃 五香葵花子</p>
+				<p><span>￥</span><span class="jiaqian">11.9</span></p>
+			</div>
+		</div>
+		<div class="chanpin">
+			<div class="chanpin_top">
+				<img src="/name/wdy/images/40.png" alt="">
+			</div>
+			<p>精选食材，慢烘轻烤，休闲即食</p>
+			<div class="chanpin_bottom">
+				<p>社会制馃 海盐坚果系列</p>
+				<p><span>￥</span><span class="jiaqian">29</span></p>
+			</div>
+		</div>
+		<div class="chanpin">
+			<div class="chanpin_top">
+				<img src="/name/wdy/images/41.png" alt="">
+			</div>
+			<p>江苏省农科院支持，不加糖即饮</p>
+			<div class="chanpin_bottom">
+				<p>一支米昔 五彩豆薏仁粉</p>
+				<p><span>￥</span><span class="jiaqian">23.9</span></p>
+			</div>
+		</div>
+		<div class="chanpin">
+			<div class="chanpin_top">
+				<img src="/name/wdy/images/42.png" alt="">
+			</div>
+			<p>优质谷物，爽脆外壳，软糯夹心</p>
+			<div class="chanpin_bottom">
+				<p>谷物夹心米果</p>
+				<p><span>￥</span><span class="jiaqian">43.5</span></p>
+			</div>
+		</div>
+		<div class="chanpin">
+			<div class="chanpin_top">
+				<img src="/name/wdy/images/43.png" alt="">
+			</div>
+			<p>纯正俄罗斯风味，网红巧克力</p>
+			<div class="chanpin_bottom">
+				<p>KDV俄罗斯紫皮糖</p>
+				<p><span>￥</span><span class="jiaqian">19.9</span></p>
+			</div>
+		</div>
+		<div class="chanpin">
+			<div class="chanpin_top">
+				<img src="/name/wdy/images/44.png" alt="">
+			</div>
+			<p>澳大利亚阳光海岸，香脆可口</p>
+			<div class="chanpin_bottom">
+				<p>夏威夷果袋坚果</p>
+				<p><span>￥</span><span class="jiaqian">19.9</span></p>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="/name/wdy/javascripts/collection.js"></script>
+<script src="/name/wdy/javascripts/buynow.js"></script>
+<script src="/name/wdy/javascripts/cart.js"></script>
+<script src="/name/wdy/javascripts/info.js"></script>
+
+<% include base/foot.ejs %>

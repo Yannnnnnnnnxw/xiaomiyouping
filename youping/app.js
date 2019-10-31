@@ -30,7 +30,8 @@ app.get('/index/info/:good',require('./controller/info'))
 // wyy
 app.get('/index/search/aircraft',require('./controller/aircraft'))
 app.get('/index/search/cat',require('./controller/cat'))
-
+// wdy
+app.get('/user/relevant/:username',require('./controller/relevant'))
 
 
 // 设置功能路由
@@ -40,7 +41,11 @@ app.post("/changeState",require("./api/changeState"))
 app.post('/login',require('./api/login'))
 app.post('/register',require('./api/register'))
 app.post('/confirm',require('./api/confirm'))
-
+// wdy
+app.post('/cart',require('./api/crecart'))
+app.post('/buynow',require('./api/buynow'))
+app.post('/collection',require('./api/collection'))
+app.post('/canclecoll',require('./api/canclecoll'))
 
 
 

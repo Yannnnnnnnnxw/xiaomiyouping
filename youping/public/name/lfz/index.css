@@ -152,6 +152,9 @@ a{
     font-size:14px;
     justify-content:center;
 }
+.lie_li h1,.lie_li h2{
+    font-size: 14px !important;
+}
 .lie_li>div{
     transform:translate(-7%)
 }

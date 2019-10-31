@@ -7,7 +7,7 @@
                 <ul>
                 <% for(let i=0;i<data.length;i++){ %>
                     <li class="lie_li">
-                        <div><span class="h1"><%= data[i].class[0] %></span>&nbsp;/&nbsp;<span class="h2"><%= data[i].class[1] %></span></div>
+                        <div><span class="h1" style="font-size: 14px;"><%= data[i].class[0] %></span>&nbsp;/&nbsp;<span class="h2" style="font-size: 14px;"><%= data[i].class[1] %></span></div>
                         <div class="biao_box">
                             <div class="biao_box1">
                                 <p><%= data[i].class[0] %></p>
@@ -179,7 +179,7 @@
             <div class="banner2_min">
                 <div class="banner2_max">
                     <% for(let i=0;i<data3.length;i++){%>
-                        <div>
+                        <div class="xsg" id="<%= data3[i].id %>">
                             <img src=<%=data3[i].imgsrc[0]%> alt="">
                             <p><%=data3[i].title%></p>
                             <div>
@@ -207,7 +207,7 @@
             <div class="banner3_min">
                 <div class="banner3_max">
                     <% for(let i=0;i<data4.length;i++){%>
-                        <div>
+                        <div class="mrxp" id="<%= data4[i].id %>">
                             <img src=<%=data4[i].imgsrc[0]%> alt="">
                             <p><%=data4[i].title%></p>
                             <div>
@@ -235,7 +235,7 @@
             <div class="banner4_min">
                 <div class="banner4_max">
                     <% for(let i=0;i<data5.length;i++){%>
-                        <div>
+                        <div class="rm" id="<%= data5[i].id %>">
                             <img src=<%=data5[i].imgsrc[0]%> alt="">
                             <p><%=data5[i].title%></p>
                             <div>

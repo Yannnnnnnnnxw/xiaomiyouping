@@ -327,3 +327,23 @@ for(let i=0;i<gengduo1.length;i++){
         $(gd[i]).css({"color":"#999"})
     })
 }
+
+
+var xsg = document.querySelectorAll('.xsg')
+for(let i=0;i<xsg.length;i++){
+    xsg[i].onclick=function(){
+        location.href=`/index/info/${xsg[i].id}`
+    }
+}
+var mrxp = document.querySelectorAll('.mrxp')
+for(let i=0;i<mrxp.length;i++){
+    mrxp[i].onclick=function(){
+        location.href=`/index/info/${mrxp[i].id}`
+    }
+}
+var rm = document.querySelectorAll('.rm')
+for(let i=0;i<rm.length;i++){
+    rm[i].onclick=function(){
+        location.href=`/index/info/${rm[i].id}`
+    }
+}

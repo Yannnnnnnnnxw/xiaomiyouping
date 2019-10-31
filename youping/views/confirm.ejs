@@ -1,0 +1,1119 @@
+<% include base/head %>
+<% include base/nav %>
+<link rel="stylesheet" href="/name/wyy/css/font-awesome.css">
+
+<style>
+    body{
+        width:1074px;
+        height:1500px;
+        margin:0 auto;
+    }
+    .tit{
+        margin-top:20px;
+        color:#000;
+        font-size:13px;
+    }
+    .tit span:last-of-type{
+        color:#999;
+    }
+    .tit span:hover{
+        color:#845f3f;
+        cursor: pointer;
+    }
+    .address{
+        color:#333;
+        font-size:19px;
+        margin-top:30px;
+    }
+    /* box */
+
+    #boxImg img{
+        width:15%;
+        cursor: pointer;
+    } 
+    .box p{
+        font-size:14px;
+        color:#ccc;
+        margin-top:8px;
+    }
+    .box:hover{
+        animation: box 0.3s linear forwards;
+    }
+    .box1:hover{
+        animation: box 0.3s linear forwards;
+    }
+    @keyframes box{
+        1%{
+            border:1px solid #E7E7E7;
+        }
+        50%{
+            border:1px solid #d5cec8;
+        }
+        100%{
+            border:1px solid #845f3f;
+        }
+    }
+    #mask{
+        background:#7f7f7f;
+        display:none;
+        position:absolute;
+        top:0px;
+        left:0px;
+        right:0px;
+        bottom:0px;
+        z-index: 10;
+        -moz-opacity: 0.8;
+        opacity:.80;
+        filter: alpha(opacity=80);
+        height:1530px;
+        width:100%;
+    }
+    /* Eject */
+    #Eject{
+        z-index: 20;
+        display:none;
+        background:#FFFFFF;
+        width:660px;
+        height:565px;
+        position: fixed;
+        top:50%;
+        left:50%;
+        transform: translateX(-50%) translateY(-50%);
+        padding-top:37px;
+    }
+    .Eject_tit{
+        color:#333;
+        font-size:19px;
+        width:92%;
+        height:43px;
+        border-bottom:1px solid #EEEEEE;
+        margin-left:25px;
+    }
+    .Eject_tit span{
+        margin-left:472px;
+    }
+    #num{
+        margin-left:6px !important;
+    }
+    #post{
+        outline:none;
+    }
+    #names,#num,#post{
+        width:297px;
+        height:38px;
+        border:1px solid #eee;
+        padding:10px;
+        margin-top:35px;
+        outline-color:#845f3f;
+        margin-left:25px;
+    }
+    #city{
+        width:605px;
+        height:38px;
+        border:1px solid #eee;
+        margin-top:35px;
+        padding:10px;
+        outline-color:#845f3f;
+        margin-left:25px;
+    }
+    #street{
+        width:605px;
+        height:60px;
+        border:1px solid #eee;
+        margin-top:35px;
+        padding:10px;
+        outline-color:#845f3f;
+        margin-left:25px;
+        margin-bottom:5px;
+        font-size:14px;
+    }
+    #radio,#radio1{
+        position:absolute;;
+        width:18px;
+        height:18px;
+        border:1px solid #E2E2E2;
+        border-radius:50px;
+        left:305px;
+        top:369px;
+        margin-left:25px;
+        text-align:center;
+        color:#fff;
+        cursor: pointer;
+    }
+    #radio1{
+        position:absolute;;
+        width:18px;
+        height:18px;
+        background:#D54843;
+        border:none;
+        border-radius:50px;
+        left:305px;
+        top:369px;
+        margin-left:25px;
+        text-align:center;
+        color:#fff;
+        cursor: pointer;
+        display: none;
+    }
+    .store{
+        width:660px;
+        height:90px;
+        background:#f2f2f2;
+        margin-top:75px;
+        padding:0px !important;
+        font-size:20px;
+    }
+    .store button{
+        width:188px;
+        height:40px;
+        background:#845f3f;
+        outline: none;
+        border:none;
+        color:#fff;
+        margin-left:15px;
+        margin-top:29px;
+    }
+    .store button:first-of-type{
+        margin-left:132px !important;
+    }
+    .error div{
+        float: left;
+    }
+    #error_street{
+        margin-top:3px !important;
+    }
+    #error_names,#error_num, #error_street{
+        color:#d54843;
+        font-size:12px;
+        margin-left:30px;
+        width:297px;
+        height:20px;
+        display: none;
+        position: absolute;
+    }
+    #error_num{
+        margin-left:10px !important;
+    }
+    #error_names{
+        top:158px;
+        left:0px;
+    }
+    #error_num{
+        top:158px;
+        left:325px;
+    }
+    #error_street{
+        top:325px;
+        left:0px;
+    }
+    #names_cha,#num_cha{
+        position:absolute;
+        width:18px;
+        height:18px;
+        border:none;
+        border-radius:50px;
+        left:296px;
+        top:125px;
+        text-align:center;
+        color:#fff;
+        background:#D54843;
+        font-size:15px;
+        display: none;
+    }
+    #num_cha{
+        left:603px !important;
+    }
+    .cha img{
+        margin-bottom:3px;
+    }
+    .store button:hover{
+        background:#D1BFA6;
+    }
+    #num::-webkit-outer-spin-button,
+    #num::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        appearance: none; 
+        margin: 0; 
+    }
+    /* more */
+    .more1{
+        display:none;
+    }
+    .more,.more1{
+        width:100%;
+        height:37px;
+        background:#FAFAFA;
+        margin-top:25px;
+        color:#999;
+        font-size:14px;
+        padding-top:5px;
+        text-align:center;
+        margin-top:255px;
+    }
+    #more_angle{
+        font-size:20px;
+    }
+    .more p:hover{
+        color:#845f3f;
+        cursor: pointer;
+    }
+    .more1 p:hover{
+        color:#845f3f;
+        cursor: pointer;
+    }
+    .pay{
+        width:1023px;
+        height:50px;
+        border-bottom:1px solid #E7E7E7;
+        margin-top:35px;
+        padding-top:12px;
+        margin-left:20px;
+    }
+    .pay p{
+        color:#333;
+        font-size:19px;
+    }
+    .pay span{
+        color:#845f3f;
+        font-size:14px;
+        margin-left:50px;
+    }
+    .choice{
+        width:100%;
+        height:30px;
+        margin:55px 0 0 0px;
+    }
+    .choice img{
+        width:30px;
+        height:30px;
+    }
+    .choice span{
+        font-size:14px;
+        color:#333;
+        margin-left:10px;
+    }
+    .choiceBox{
+        width:1073px;
+        height:auto !important;
+        border:2px solid #E7E7E7;
+        margin-top:15px;
+        padding:16px 20px 130px 20px;
+
+    }
+    .project{
+        width:100%;
+        height:70px;
+        border-bottom:1px solid #E7E7E7;
+    }
+    .project div{
+        float:left;
+    }
+    .projectImg img{
+        margin-top:5px;
+    }
+    .projectDesc{
+        color:#333;
+        font-size:14px;
+        margin-left:20px;
+        width:376px;
+    }
+    .projectDesc p{
+        margin-top:18px;
+        margin-bottom:3px;
+    }
+    .projectDesc span{
+        color:#999;
+        font-size:12px;
+    }
+    .projectDesc span img{
+        margin-top:-6px;
+    }
+    .projectIpt{
+        margin-left:105px;
+        margin-top:16px;
+    }
+    .projectIpt button{
+        background:#fff;
+        border:1px solid #B3B3B3;
+        width:30px;
+        height:30px;
+        outline:none;
+    }
+    .projectIpt button:first-of-type{
+        border-right:none;
+    }
+    .projectIpt button:last-of-type{
+        border-left:none;
+        color:#845f3f;
+    }
+    .projectIpt input{
+        background:#fff;
+        border:1px solid #B3B3B3;
+        width:72px;
+        height:30px;
+        text-align:center;
+        color:#333;
+        outline:none;
+    }
+    .price{
+        width:173px;
+        text-align:right;
+        color:#333;
+        font-size:14px;
+        margin-top:20px;
+    }
+    .total{
+        width:173px;
+        height:20px;
+        text-align:right;
+        font-size:14px;
+        margin-top:20px;
+        color:#c00000;
+    }
+    #ipt::-webkit-outer-spin-button,
+    #ipt::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        appearance: none; 
+        margin: 0; 
+    }
+    .bill{
+        margin-top:36px;
+        height:50px;
+        width:100%;
+    }
+    .billTit{
+        color:#333;
+        font-size:19px;
+        margin-top:10px;
+    }
+    .bill div{
+        float:left;
+    }
+    .billBtn button{
+        width:247.5px;
+        height:44px;
+        border:1px solid #E7E7E7;
+        background:#fff;
+        margin-top:1.5px;
+        font-size:14px;
+        outline:none;
+    }
+    #no,#person{
+        margin-left:60px;
+        border:1px solid #845f3f;
+        color:#845f3f;
+    }
+    #yes,#boss{
+        margin-left:10px;
+        color:#333;
+    }
+    .choiceBox a{
+        color:#67a3d9;
+        margin-left:135px;
+        text-decoration: underline;
+    }
+    #a{
+        margin-top:15px;
+    }
+    .rise{
+        display:none;
+    }
+    .billIpt input{
+        width:762.5px;
+        height:44px;
+        border:1px solid #E7E7E7;
+        padding:1px 0px 1px 15px;
+        background:#fff;
+        margin-top:25px;
+        margin-left:135px;
+        outline-color:#845f3f;
+    }
+    .billPerson input{
+        width:762.5px;
+        height:44px;
+        border:1px solid #E7E7E7;
+        padding:1px 0px 1px 15px;
+        background:#fff;
+        margin-top:25px;
+        margin-left:135px;
+        outline-color:#845f3f;
+    }
+    .billIpt,.billPerson{
+        width:762.5px;
+        height:auto;
+        display:none;
+    }
+    .buyer div{
+        float:left;
+    }
+    .buyer div:first-of-type{
+        width:100px;
+        height:100%;
+    }
+    .buyer div:last-of-type{
+        width:762.5px;
+        height:100px;
+    }
+    #buyerIpt{
+        width:762.5px;
+        height:100px;
+        background:#fff;
+        border:1px solid #E7E7E7;
+        margin-left:35px;
+        outline-color:#845f3f;
+        text-align:left;
+    }
+   .buyer div input::-webkit-input-placeholder{
+        color:#D6D6D6;
+    }
+    #ticket{
+        margin-top:10px;
+        color:#c00000;
+    }
+    .goBox{
+        width:100%;
+        height:157px;
+        border-bottom:1px solid #E7E7E7;
+    }
+    .goBox .go{
+        margin-left:84%;
+    }
+    .go{
+        width:200px;
+        height:157px;
+    }
+    #entire{
+        font-size:18px;
+        color:#333;
+        margin-top:40px;
+
+    }
+    .go table tr td:first-of-type{
+        width:80px;
+        height:25px;
+        text-align:right;
+        color:#333;
+    } 
+    .go table tr td:nth-child(2){
+        width:60px;
+        text-align:right;
+        color:#c00000;
+    }
+    .go table tr td:nth-child(3){
+        color:#c00000;
+        height: 25px;
+    }
+    .go p{
+        margin-left:40px;
+        margin-top:40px;
+        font-size:18px;
+        color:#333;
+    }
+    .go span{
+        color:#c00000;
+    }
+    #entire{
+        color:#c00000;
+    }
+    #goBuy{
+        width:167px;
+        height:52px;
+        border:none;
+        background:#845f3f;
+        color:#fff;
+        font-size:20px;
+        margin-left:84%;
+        margin-top:50px;
+        outline:none;
+    }
+    #goBuy:hover{
+        background:#D1BFA6;
+    }
+    #city{
+        background:#fff;
+        position: relative;
+        outline:none;
+    }
+    #cityBox{
+        width:605px;
+        height:180px;
+        border:1px solid #845f3f;
+        position: absolute;
+        top:232px;
+        left:25px;
+        background:#fff;
+        z-index: 100;
+        padding:10px;
+        display:none;
+    }
+    .citybox{
+        width:100%;
+        height:30px;
+        border-bottom:1px solid #e7e7e7;
+    }
+    .citybox p{
+        color:#845F3F;
+        font-size:14px;
+
+    }
+    #cityClose{
+        margin-left:470px;
+    }
+    .citySelect span{
+        color:#845F3F;
+    }
+    .citySelect select{
+        width:90%;
+        height:30px;
+        border:1px solid #eee;
+        margin-top:10px;
+        margin-left:10px;
+        outline-color: #845F3F;
+        color:#845F3F;
+    }
+    .citySelect select{
+       -webkit-appearance: none;
+       padding:3px 0px 3px 10px;
+       border:1px solid #eee;
+    }
+    .citySelect select option{
+        border:1px solid #eee;
+    }
+    .Box .box{
+        /* flex:1px; */
+        float: left;
+        width:250px;
+        height:202px;
+        border:1px solid #E7E7E7;
+        margin:13px 0 10px 0;
+        text-align:center;
+        padding-top:63px;
+        margin-left:10px;
+        margin-top:0px;
+    }
+    .box1{
+        width:250px;
+        height:202px;
+        border:1px solid #E7E7E7;
+        float:left;
+    }
+    .box1 p:first-of-type{
+        width:40px;
+        height:12px;
+        background:#7f6044;
+        color:#fff;
+        font-size:9px;
+        text-align:center;
+        margin:3px;
+    }
+    .Pname{
+        color:#333;
+        font-size:16px;
+        margin-left:20px;
+    }
+    .Pphone{
+        font-size:14px;
+        color: #333;
+        margin-left:20px;
+    }
+    .Ppost,.Paddress{
+        color:#999;
+        font-size:13px;
+        margin-left:20px;
+    }
+</style>
+<p class="tit"><span>首页</span> > <span>购物车</span> > <span>确认页</span></p>
+<p class="address">收货地址</p>
+<div class="Box">
+    <div class="box1">
+        <p>默认</p>
+            <p class="Pname"><%= Sp[0].username %></p>
+            <p class="Pphone">12345678901</p>
+            <p class="Paddress"><%= Sp[0].address %></p>
+            <p class="Ppost">041500</p>
+    </div>
+    <!-- <div class="box">
+        <div id="boxImg">
+            <img src="/name/wyy/images/jaihao.png">
+        </div>
+        <p id="newAddress">添加新地址</p>
+    </div> -->
+</div>
+<div id="mask"></div>
+<div id="Eject">
+    <div class="Eject_tit">
+        <p>添加收货地址<span id="close"><img width="3%" src="/name/wyy/images/chahao.png"></span></p>
+    </div>
+    <input id="names" class="ipt" type="text" placeholder="姓名">
+    <div id="names_cha" class="cha"><img width="85%" src="/name/wyy/images/cha1.png"></div>
+    <input id="num" class="ipt" type="number" placeholder="手机号">
+    <div id="num_cha"class="cha"><img width="85%" src="/name/wyy/images/cha1.png"></div>
+    <div class="error">
+        <div id="error_names">
+            <p>收货人姓名不能小于2个字符</p>
+        </div>
+        <div id="error_num">
+            <p>手机号码格式错误</p>
+        </div>
+    </div>
+    <input id="city" class="ipt" type="text" placeholder="选择省／市／区／街道" readonly>
+    <div id="cityBox">
+        <Div class="citybox">
+            <p>选择省/自治区 <span id="cityClose"><img width="3%" src="/name/wyy/images/chahao.png"></span></p>
+        </Div>
+        <div class="citySelect">
+            <span>省</span>
+            <select id="province" >
+                <option>
+                    
+                </option>
+            </select><br>
+            <span>市</span>
+            <select id="citys">
+                <option>
+                    
+                </option>
+            </select><br>
+            <Span>区</Span>
+            <select id="area">
+                <option>
+                    
+                </option>
+            </select>
+        </div>
+    </div>
+    <input id="street" class="ipt" type="text" placeholder="详细地址">
+    <div id="error_street">
+        <p>街道地址不能为空</p>
+    </div>
+    <input id="post" class="ipt" type="text" readonly="readonly" placeholder="邮政编号">
+    <div id="radio"></div><div id="radio1"><img width="70%" src="/name/wyy/images/duigou1.png"></div><span>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  设为默认</span>
+    <div class="store">
+        <button id="store_hold">保存</button>
+        <button id="store_cancel">取消</button>
+    </div>
+</div>
+<div class="more">
+       <!-- <p>显示更多收货地址 &nbsp;<i id="more_angle" class="fa fa-angle-down"></i></p>  -->
+</div>
+<div class="more1">
+    <p>收起更多收货地址 &nbsp;<i id="more_angle" class="fa fa-angle-up"></i></p> 
+</div>
+<div class="pay"><p>支付方式<span>在线支付</span></p></div>
+<div class="pay"><p>配送方式<span>快递配送</span></p></div>
+<div class="choice">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAY1BMVEUAAACGXTKGXjKFXjOFXjObZzOGXzGHXzOGYDOFXTKFXjOGXjKFXjGGYTOGXTGHXzGGXTGHXzOHXTKGXjGGXjKGXTKHXTGKXzOZZj2GXTKGXjGGXjGHXjOHYDSHYjWGYT2FXTE81JceAAAAIHRSTlMA2PBaiASBRlD7Qb6wNt+Mqi5R0aBzaB0IzrV7aToiFU6bVX4AAAC/SURBVEjH7dLJCsMgFIXhq0mrNlPNPLb3/Z+ypiAhAyZ30wHyrzyLDxGEs59L4DzV+LUTSFzFKiLAlgowcoAUTZ2wFXzc/R6IFjtxALkANRWA+j+gA1MFU6HZHnwt6c0b7Ed9mCE3AC5THby7juPiBLacClDsAcVs3F7hBv40i3E3BACZ2TEF3A8DUZblQAHMHMJPAUYBT611RQBTCRVkR0B2s6Ut2tc7wKqQCJSmAdXDRjHnvABTwOexPIIzYi8e5Dp3abNxGgAAAABJRU5ErkJggg==">
+    <span>有品精选</span>
+</div>
+<div class="choiceBox">
+    <%for(let i=0;i<Sp.length;i++){%>
+        <div class="project" id="<%=Sp[i]._id%>">
+            <div class="projectImg" id="<%= Sp[i].id %>">
+                <img width="50px" src="<%=Sp[i].imgsrc%>">
+            </div>
+            <div class="projectDesc">
+                <p><%=Sp[i].title%>
+                    <%for(let j=0;j<Sp[i].shopTags.length;j++){%>
+                        <%=Sp[i].shopTags[j].tags%>
+                    <%}%>
+                </p>
+                <span><img width="16px" src="/name/wyy/images/duigou.png">&nbsp; 支持七天无理由退货</span>
+            </div>
+            <!-- <div class="projectIpt">
+                <button id="reduce">-</button><input id="ipt" type="number" value="1" ><button id="add">+</button>
+            </div> -->
+            <div class="price">
+                <p><span class="projectPrice" id="projectPrice"><%=Sp[i].price%></span>元×<span class="projectNum" id="projectNum"><%=Sp[i].count%></span></p>
+            </div>
+            <div class="total">
+                <p>￥<span class="projectTotal"><%=Sp[i].price*Sp[i].count%></span></p>
+            </div> 
+        </div>
+    <%}%>
+    <div class="bill">
+        <div class="billTit">
+            <p>发票类型</p>
+        </div>
+        <div class="billBtn">
+            <button id="no">不开发票</button>
+            <button id="yes">电子发票</button> 
+        </div>
+    </div>
+    <div class="bill rise">
+        <div class="billTit">
+            <p>发票抬头</p>
+        </div>
+        <div class="billBtn">
+            <button id="person">个人</button>
+            <button id="boss">企业</button> 
+        </div>
+    </div>
+    <div class="billIpt">
+        <input type="text" placeholder="抬头发票">
+        <input type="text" placeholder="发票税号"> 
+        <input type="text" placeholder="手机号码"> 
+        <input type="text" placeholder="电子邮箱(选填)">  
+    </div>
+    <div class="billPerson">
+        <input type="text" placeholder="手机号码">
+        <input type="text" placeholder="电子邮箱(选填)"> 
+    </div>
+    <div id="a">
+       <p><a href="">常见发票问题>></a></p> 
+    </div>
+    <div class="buyer">
+        <div class="billTit">
+            <p>买家留言</p>
+        </div>
+        <div>
+            <input type="text" id="buyerIpt" placeholder="填写内容需与商家协商并确认，45字以内">
+        </div>
+    </div>
+</div>
+<p id="ticket">无可用优惠券</p>
+<div class="goBox">
+    <div class="go">
+        <table>
+            <tr>
+                <td>商品总价：</td>
+                <td id="total">0.00</td>
+                <td>元</td>
+            </tr>
+            <tr>
+                <td>运费 ：</td>
+                <td id="feright">0.00</td>
+                <td>元</td>
+            </tr>
+            <tr>
+                <td>优惠：</td>
+                <td id="favourable">10000.00</td>
+                <td>元</td>
+            </tr>
+        </table>
+        <p>合计：<span>￥</span><span id="entire">19.90</span></p>
+    </div>
+</div>
+<button id="goBuy">去下单</button>
+
+<script>
+    var box=document.getElementsByClassName('box')[0]
+    
+    var boxImg=document.getElementById('boxImg')
+    var address=document.getElementsByClassName('address')
+    if (box) {
+        box.onmouseover=function(){
+            boxImg.innerHTML='<img src="/name/wyy/images/jiahao1.png">'
+            newAddress.style.color='#845f3f'
+        }
+        box.onmouseleave=function(){
+            box.style.border='1px solid #E7E7E7'
+            boxImg.innerHTML='<img src="/name/wyy/images/jaihao.png">'
+            newAddress.style.color='#E7E7E7'
+        }
+        box.onclick=function(){
+            Eject.style.display='block'
+            mask.style.display='block'
+        }
+    }
+    
+ 
+      //radio
+      radio.onclick=function(){
+          radio1.style.display='block'
+          radio.style.display='none'
+      }
+      radio1.onclick=function(){
+          radio.style.display='block'
+          radio1.style.display='none'
+      }
+      //error
+      var regexg = new RegExp('/^[0-9]{11}$/')
+      var names= document.getElementById('names')
+      var error_names= document.getElementById('error_names')
+      var names_cha= document.getElementById('names_cha')
+      names.onblur=function(){
+          if(names.value==''){
+            names.style.border='1px solid #D54843'
+            error_names.style.display='block'
+            names_cha.style.display='block'
+          }
+      }
+      num.onblur=function(){
+              if(!(num.value.length=='11')){
+                    num.style.border='1px solid #D54843'
+                    error_num.style.display='block'
+                    num_cha.style.display='block'
+            }else{
+                    num.style.border='1px solid #eee'
+                    error_num.style.display='none'
+                    num_cha.style.display='none'
+            }
+      }
+      street.onblur=function(){
+        if(street.value==''){
+            street.style.border='1px solid #D54843'
+            error_street.style.display='block'
+        }else{
+            error_street.style.display='none'
+        }
+          }
+    //close
+    document.getElementById('close').onclick=function(){
+        Eject.style.display='none'
+        mask.style.display='none'
+        error_num.style.display='none'
+        num_cha.style.display='none'
+        error_names.style.display='none'
+        names_cha.style.display='none'
+        error_street.style.display='none'
+        num.style.border='1px solid #E7E7E7'
+        names.style.border='1px solid #E7E7E7'
+        street.style.border='1px solid #E7E7E7'
+    }
+    
+    store_hold.onclick=function(){
+        Eject.style.display='none'
+        mask.style.display='none'
+    }
+    store_cancel.onclick=function(){
+        Eject.style.display='none'
+        mask.style.display='none'
+    }
+    //more
+    var more=document.getElementsByClassName('more')[0]
+    var more1=document.getElementsByClassName('more1')[0]
+    more.onclick=function(){
+        more1.style.display='block'
+        more.style.display='none'
+    }
+    more1.onclick=function(){
+        more1.style.display='none'
+        more.style.display='block'
+    }
+    //button
+    var ipt=document.getElementById('ipt')
+    var add=document.getElementById('add')
+    var projectNum=document.getElementById('projectNum')
+    var projectTotal=document.getElementsByClassName('projectTotal')
+    var reduce=document.getElementById('reduce')
+    var add=document.getElementById('add')
+    var projectPrice=document.getElementById('projectPrice')
+    var totals=document.getElementById('total')
+    var feright=document.getElementById('feright')
+    var favourable=document.getElementById('favourable')
+    var entire=document.getElementById('entire')
+    var price=projectPrice.innerHTML
+    var pronum=projectNum.innerHTML
+
+    for(let i=0;i<projectTotal.length;i++){
+        totals.innerText=parseInt(totals.innerText)+parseInt(projectTotal[i].innerText)
+    }
+
+    entire.innerText=parseInt(totals.innerText)+parseInt(feright.innerText)-parseInt(favourable.innerText)
+    // add.onclick=function(){
+    //     ipt.value++
+    //     projectNum.innerHTML=ipt.value
+    //     var total=projectPrice.innerHTML*projectNum.innerHTML
+    //     projectTotal.innerHTML= total.toFixed(2)
+    //     totals.innerHTML=total.toFixed(2)
+    //     var a=(totals.innerHTML)
+    //     var b=(feright.innerHTML)
+    //     var c=(favourable.innerHTML)
+    //     entire.innerHTML=(a-0)+(b-0)-(c-0)
+    // }
+    // reduce.onclick=function(){
+    //     if(ipt.value<=1){
+    //         ipt.value==1
+    //     }else{
+    //         ipt.value--
+    //         projectNum.innerHTML=ipt.value
+    //         var total=projectPrice.innerHTML*projectNum.innerHTML
+    //         projectTotal[i].innerHTML=total.toFixed(2)
+    //         totals.innerHTML=total.toFixed(2)
+    //     }
+    // }
+    // ipt.onblur=function(){
+    //     if(ipt.value==''){
+    //         ipt.value=1
+    //         projectNum.innerHTML=ipt.value
+    //         var total=projectPrice.innerHTML*projectNum.innerHTML
+    //         projectTotal.innerHTML=total.toFixed(2)
+    //         totals.innerHTML=total.toFixed(2)
+
+    //     }else if(ipt.value<=1){
+    //         ipt.value=1
+    //         projectNum.innerHTML=ipt.value
+    //         var total=projectPrice.innerHTML*projectNum.innerHTML
+    //         projectTotal.innerHTML=total.toFixed(2)
+
+    //     }else{
+    //         ipt.value=ipt.value
+    //         projectNum.innerHTML=ipt.value
+    //         var total=projectPrice.innerHTML*projectNum.innerHTML
+    //         projectTotal.innerHTML=total.toFixed(2)
+    //         totals.innerHTML=total.toFixed(2)
+    //     }
+    // }
+    //bill
+    var rise=document.getElementsByClassName('rise')[0]
+    var billIpt=document.getElementsByClassName('billIpt')[0]
+    var billPerson=document.getElementsByClassName('billPerson')[0]
+    var yes=document.getElementById('yes')
+    var no=document.getElementById('no')
+    var boss=document.getElementById('boss')
+    var person=document.getElementById('person')
+    yes.onclick=function(){
+        rise.style.display='block'
+        yes.style.border='1px solid #845f3f'
+        if(yes.style.border='1px solid #845f3f'){
+           no.style.border='1px solid #E7E7E7' 
+        }
+    }
+    no.onclick=function(){
+        rise.style.display='none'
+        billIpt.style.display='none'
+        billPerson.style.display='none'
+        if(yes.style.border='1px solid #E7E7E7'){
+           no.style.border='1px solid #845f3f' 
+        }
+    }
+    boss.onclick=function(){
+        billIpt.style.display='block'
+        billPerson.style.display='none'
+        if(boss.style.border='1px solid #845f3f'){
+           person.style.border='1px solid #E7E7E7' 
+        }
+    }
+    person.onclick=function(){
+        billIpt.style.display='none'
+        billPerson.style.display='block'
+        if(person.style.border='1px solid #845f3f'){
+           boss.style.border='1px solid #E7E7E7' 
+        }
+    }
+    var data={
+           "山西省":{ 
+               "太原市":['小店区','杏花岭区','万柏林区','娄烦县','古交市','阳曲县',
+                        '迎泽区','晋源区','清徐县',],
+               "晋中市":['榆林区','昔阳县','太谷县','祁县','灵石县','介休市','平遥县',
+                         '榆次区','榆社县','左权县','和顺县','寿阳县'],
+               "临汾市":['尧都区','曲沃县','古县','安泽县','浮山县',,'吉县','乡宁县','侯马市',
+                         '翼城县','襄汾县','洪洞县','大宁县','隰县','永和县','蒲县','汾西县','霍州市'],
+               "大同市":['平城区','云冈区','新荣区','阳高县','天镇县','广灵县','灵丘县','浑源县','左云县','云州区'],
+               "阳泉市":['城区','矿区','郊区','平定县','盂县'],
+               "长治市":['城区','郊区','长治县','襄垣县','屯留县','平顺县','黎城县','壶关县','长子县','武乡县',
+                        '沁县','沁源县','潞城市'],
+               "晋城市":['城区','沁水县','阳城县','陵川县','泽州县','高平市'],
+               "朔州市":['朔城区','平鲁区','山阴县','应县','右玉县','怀仁县'],
+               "运城市":['盐湖区','临猗县','万荣县','闻喜县','稷山县','新绛县','绛县','垣曲县','夏县',
+                        '平陆县','芮城县','永济市','河津市'],
+               "忻州市":['忻府区','定襄县','五台县','代县','繁峙县','宁武县','静乐县','神池县','五寨县',
+                        '岢岚县','河曲县','保德县','偏关县','原平市'],
+               "吕梁市":['离石区','文水县','交城县','兴县','临县','柳林县','石楼县','岚县','方山县','中阳县',
+                        '交口县','孝义市','汾阳市'],
+           },
+           "陕西省":{
+               "西安市":['临潼区','未央区','长安区'],
+           },
+           "河南省":{
+               "洛阳市":['西工区','洛龙区'],
+           },
+           "北京":{
+               "北京市":['东城区','西城区','朝阳区','丰台区','石景山区','海淀区','门头沟区','房山区','通州区','顺义区',
+                         '昌平区','大兴区','怀柔区','平谷区','密云县','延庆县'],
+           },
+           "天津":{
+               "天津市":['和平区','河东区','河西区','南开区','河北区','红桥区','塘沽区','汉沽区','大港区','东丽区',
+               '津南区','北辰区','武清区','宝坻区','宁河县','静海县','蓟县','保税区','经济技术开发区','高新区',
+               '滨海新区','西青区'],
+           },
+           "河北":{
+               "石家庄市":['长安区','桥东区','桥西区','新华区','裕华区','井陉县','正定县','栾城县','行唐县','灵寿县',
+                          '高邑县','深泽县','赞皇县','无极县','平山县','元氏县','赵县','辛集市','藁城市','晋州市','新乐市','鹿泉市',
+                          '高新技术开发区'],
+               "唐山市":['路南区','路北区','古冶区','开平区','丰南区','丰润区','滦县','滦南县','乐亭县','迁西县','玉田县',
+                        '唐海县','遵化市','迁安市','高新区','汉沽管理区','海港开发区','芦台开发区','南堡开发区','曹妃甸区'
+               ],
+               "秦皇岛市":['海港区','山海关区','北戴河区','青龙满族自治县','昌黎县','抚宁县','卢龙县','经济技术开发区','海港开发区'
+               ],
+               "邯郸市":['邯山区','丛台区','复兴区','峰峰矿区','邯郸县','临漳县','成安县','大名县','涉县','磁县','肥乡县','永年县','邱县鸡泽县',
+                        '广平县','馆陶县','魏县曲','周县','武安市','经济开发区'],
+               "邢台市":['桥东区','桥西区','邢台县','临城县','内丘县','柏乡县','隆尧县','任县','南和县','宁晋县','巨鹿县','新河县',
+                        '广宗县','平乡县','威县','清河县','临西县','南宫市','沙河市'],
+               "保定市":['满城县','清苑县','涞水县','阜平县','徐水县','定兴县','唐县','高阳县','容城县','涞源县','望都县','安新县',
+                        '易县曲','阳县','蠡县','顺平县','博野县','雄县','涿州市','定州市','安国市','高碑店','市莲池区','竞秀区'
+                       ],
+               "张家口市":['桥东区','桥西区','宣化区','下花园区','宣化县','张北县','康保县','沽源县','尚义县','蔚县阳','原县','怀安县','万全县',
+                          '怀来县','涿鹿县','赤城县','崇礼县'
+                        ],
+               "承德市":['双桥区','双滦区','鹰手营子矿区','承德县','兴隆县','平泉县','滦平县','隆化县','丰宁满族自治县','宽城满族自治县','围场满族蒙古族自治县'
+                        ],
+               "沧州市":['新华区','运河区','沧县青县','东光县','海兴县','盐山县','肃宁县','南皮县','吴桥县','献县','孟村回族自治县','泊头市','任丘市',
+                         '黄骅市河间市'
+                        ],
+               "廊坊市":['安次区','广阳区','固安县','永清县','香河县','大城县','文安县','大厂回族自治县','霸州市','三河市','开发区'
+                        ],
+               "衡水市":['桃城区','枣强县','武邑县','武强县','饶阳县','安平县','故城县','景县','阜城县','冀州市','深州市'
+                        ],
+           },
+           "内蒙古":{
+               "呼和浩特市":['回民区','玉泉区','新城区','赛罕区','土默特左旗','托克托县','和林格尔县','清水河县','武川县'],
+               "包头市":['东河区','昆都仑区','青山区','石拐区','白云矿区','九原区','土默特右旗','固阳县','达尔罕茂明安联合旗'],
+               "乌海市":['海勃湾区','海南区','乌达区'],
+               "赤峰市":['红山区','元宝山区','松山区','阿鲁科尔沁旗巴林左旗','巴林右旗林西县','克什克腾旗','翁牛特旗','喀喇沁旗宁城县','敖汉旗'],
+               "通辽市":['科尔沁区','科尔沁左翼中旗','科尔沁左翼后旗','开鲁县库伦旗','奈曼旗扎鲁特旗','霍林郭勒市'],
+               "鄂尔多斯市":['东胜区','达拉特旗','准格尔旗','鄂托克前旗','鄂托克旗','杭锦旗乌审旗','伊金霍洛旗','康巴什区'],
+               "呼伦贝尔市":['海拉尔区','阿荣旗','莫力达瓦达斡尔族自治旗','鄂伦春自治旗','鄂温克族自治旗','陈巴尔虎旗','新巴尔虎左旗','新巴尔虎右旗','满洲里市牙克石市','扎兰屯市',
+                            '额尔古纳市根河市','扎赉诺尔区'
+                           ],
+               "巴彦淖尔市":['临河区','五原县','磴口县','乌拉特前旗','乌拉特中旗','乌拉特后旗','杭锦后旗'],
+               "乌兰察布市":['集宁区','卓资县','化德县','商都县','兴和县','凉城县','察哈尔右翼前旗','察哈尔右翼中旗','察哈尔右翼后旗','四子王旗','丰镇市'],
+               "兴安盟":['乌兰浩特市','阿尔山市','科尔沁右翼前旗','科尔沁右翼中旗','扎赉特旗','突泉县'],
+               "锡林郭勒盟":['二连浩特市','锡林浩特市','阿巴嘎旗苏尼特左旗','苏尼特右旗','东乌珠穆沁旗','西乌珠穆沁旗','太仆寺旗','镶黄旗','正镶白旗','正蓝旗','多伦县'],
+               "阿拉善盟":['阿拉善左旗','阿拉善右旗','额济纳旗'],
+           }
+       }
+       $.each(data,function(index,value){
+           $('#province').append ($('<option value="'+index+'">'+index+'</option>'))
+       })
+
+
+       $('#province').change(function(){
+           var city=data[this.value]
+           $('#citys').html('<option></option>')
+           $.each(city,function(index,value){
+               $('#citys').append($('<option value="'+index+'">'+index+'</option>'))
+           })
+
+           $('#citys').change(function(){
+           var area=city[this.value]
+           $('#area').html('<option></option>')
+           $.each(area,function(index,value){
+               $('#area').append($('<option value="'+value+'">'+value+'</option>'))
+           })
+       })
+    })
+    //省市区
+    cityClose.onclick=function(){
+        cityBox.style.display='none'
+    }
+    city.onclick=function(){
+        cityBox.style.display='block'
+        // city.value=province.value+' '+citys.value+ ' ' +area.value
+        // console.log(city.value)
+    }
+    province.onblur=function(){
+        city.value=province.value
+    }
+    citys.onblur=function(){
+        city.value=province.value+' / '+citys.value
+    }
+    area.onblur=function(){
+        city.value=province.value+' / '+citys.value+' / '+area.value
+        cityBox.style.display='none'
+    }
+
+</script>
+<script src="/javascripts/jquery.js"></script>
+<script src="/javascripts/ajax/confirm.js"></script>
+<% include base/foot %>

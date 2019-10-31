@@ -1,1 +1,238 @@
-login
+<% include base/head.ejs %>
+<% include base/nav.ejs %>
+
+<style>
+    *{
+        padding:0px;
+        margin:0px;
+    }
+    body{
+        background:#f5f5f5;
+        height:720px;
+    }
+    .Box{
+        height:600px;
+        width:800px;
+        background:#fff;
+        margin:0 auto;
+        padding-top:30px;
+    }
+    .content{
+        height:500px;
+        width:400px;
+        margin:20px auto;
+    }
+    .logo{
+        width:48px;
+        height:48px;
+        background:#ff6700;
+        border-radius:3px;
+        margin:0 auto;
+    }
+    .logo img{
+        margin:8px 0 0 9px;
+    }
+    .tit{
+        width:100%;
+        height: 10px;
+        margin-top:23px;
+    }
+    .tit p{
+        text-align: center;
+        font-size: 30px;
+        color:#333;
+    }
+    .ipt{
+        width:100%;
+        height:200px;
+        margin-top:70px;
+        text-align: center;
+    }
+    .ipt input{
+        width:358px;
+        height:50px;
+        padding:13px 16px 13px 14px;
+        margin-bottom: 14px;
+        border:1px solid #E0E0E0;
+        font-size: 14px;
+        outline: none;
+    }
+    .ipt input:nth-child(2){
+        margin-bottom: 16px;
+    }
+    .ipt  input::-webkit-input-placeholder{
+            color:#ACACAC;
+        }
+    .ipt button{
+        width:358px;
+        height:50px;
+        background:#FF6700;
+        outline: none;
+        border:none;
+        margin-top:10px;
+        color:#FFFFFF;
+        font-size:14px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .desc{
+        width:100%;
+        height:20px;
+        display:flex;
+    }
+    .desc p{
+        flex:1;
+        color:#ff6700;
+        font-size:14px;
+        padding-left:20px;
+        cursor: pointer;
+    }
+    .desc span{
+        flex:2;
+        color:#757575;
+        font-size:14px;
+        cursor: pointer;
+    }
+     .desc span:hover{
+        color:#ff6700;
+     }
+    .desc span:nth-child(2){
+        color: #E8E8E8 !important;
+    }
+    .desc span:nth-child(1){
+        margin-left:105px;
+    }
+    .other{
+        padding: 0px 20px;
+        color:#b0b0b0;
+        font-size: 14px;
+        margin-top:30px;
+    }
+    .other div{
+        float: left;
+        width:137px;
+        height:10px;
+        border-bottom:1px solid #E0E0E0;
+    }
+    .other div:nth-child(2){
+        border:none;
+        width:auto;
+    }
+    .otherImg{
+        width:100%;
+        height:30px;
+        margin-top:65px;
+        text-align: center;
+    }
+    .otherImg img{
+        width:30px;
+        height:30px;
+        margin-right:20px;
+        cursor: pointer;
+    }
+    .otherImg img:last-of-type{
+        margin-right:0px;
+    }
+    .explain{
+        width:320px;
+        height:20px;
+        color:#757575;
+        font-size:14px;
+        margin:0 auto;
+        margin-top:30px;
+    }
+    .explain span:first-of-type{
+        color:#333;
+    }
+    .address{
+        width:580px;
+        height:20px;
+        margin:10px auto;
+        color:#757575;
+        font-size:14px;
+    }
+
+    #err{
+        color:#ff6666;
+        font-size:14px;
+        margin-bottom:5px;
+        display:none;
+    }
+    #err img{
+        width:14px;
+        margin-right:5px;
+        margin-top:-2px;
+        margin-left:-185px !important; 
+    }
+
+</style>
+<div class="Box">
+    <div class="content">
+        <div class="logo">
+            <img width="65%" src="/name/wyy/images/logo.png">
+        </div>
+        <div class="tit">
+            <p>小米帐号登录</p>
+        </div>
+        <div class="ipt">
+            <form>
+                <input name="username" id="ipt" type="text" placeholder="邮箱/手机号码/小米ID">
+                <input name="password" id="ipt1" type="password"  placeholder="密码">
+                <div id="err">
+                    <img src="/name/wyy/images/cuowu.png"><span>请输入正确的账号或密码</span>
+                </div>
+                <button id="btn" type="submit">登录</button>
+            </form>
+        </div>
+        <div id="box">
+             <div class="desc">
+            <p>手机短信登录/注册<span>立即注册 </span><span> | </span><span> 忘记密码?</span></p>  
+        </div>
+        <div class="other">
+            <div></div><div>其他方式登录</div><div></div>
+        </div>
+        <div class="otherImg">
+            <img src="/name/wyy/images/qq.png">
+            <img src="/name/wyy/images/weibo.png">
+            <img src="/name/wyy/images/zhifubao.png">
+            <img src="/name/wyy/images/weixin.png">        
+        </div>
+    </div>
+</div>
+<div class="explain">
+    <p><span>简体</span>
+        <span>&nbsp; | &nbsp;繁体&nbsp; | &nbsp;</span>
+        <span> English&nbsp; | &nbsp;</span>
+        <span>常见问题&nbsp; | &nbsp;</span>
+        <span>隐私政策</span>
+    </p>
+</div>
+<div class="address">
+    <p>小米公司版权所有-京ICP备10046444-<img src="https://account.xiaomi.com/static/res/9204d06/account-static/respassport/acc-2014/img/ghs.png">京公网安备11010802020134号-京ICP证110507号</p>
+</div>
+       
+<script src="/javascripts/ajax/login.js"></script>
+<script>
+      ipt.onfocus=function(){
+          if(!(ipt.value=='')){
+              err.style.display='none'
+          }else{
+              err.style.display='block'
+          }
+      }
+      ipt1.onfocus=function(){
+          if(!(ipt.value=='')){
+              err.style.display='none'
+          }else{
+              err.style.display='block'
+          }
+      }
+    btn.onclick=function(){
+        if(ipt.value=='' || ipt1.value == ''){
+            err.style.display='block'
+            box.style.marginTop='25px'
+        }
+    }
+
+</script>
+<% include base/foot.ejs %>

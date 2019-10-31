@@ -1,0 +1,51 @@
+function search(req,res){
+    res.render('aircraft',{
+        title:'【飞机以及飞机相关产品】-小米有品',
+        list:[{
+            img:'01.png',
+            desc:'米兔遥控小飞机',
+            price:'399',
+        },{
+            img:'02.png',
+            desc:'米兔遥控小飞机座充电池套装',
+            price:'99',
+        },{
+            img:'03.png',
+            desc:'米兔遥控小飞机螺旋桨',
+            price:'19',
+        },{
+            img:'04.png',
+            desc:'米兔遥控小飞机保护架',
+            price:'19',
+        },{
+            img:'05.png',
+            desc:'野蛮娃娃遥控跑车',
+            price:'199', 
+        },{
+            img:'06.png',
+            desc:'积木 沙漠赛车',
+            price:'129', 
+        },{
+            img:'07.png',
+            desc:'SIMI足球机器人 两只装',
+            price:'199', 
+        },{
+            img:'08.png',
+            desc:'优必选曼城足球车机器人',
+            price:'199', 
+        },{
+            img:'09.png',
+            desc:'小丹机器人',
+            price:'2999',
+        },{
+            img:'10.png',
+            desc:'米兔积木机器人',
+            price:'499',  
+        },{
+            img:'11.png',
+            desc:'米兔积木机器人履带机甲',
+            price:'499', 
+        }]
+        })
+}
+module.exports=search

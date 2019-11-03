@@ -13,19 +13,23 @@ function showBuynow(req,res){
     data.price =req.body.price
     data.shopTags =JSON.parse(req.body.shopTags).name
 
-    Cartsure.remove({}).then((result)=>{
-        if(result){
-            Cartsure.create(data).then((result1)=>{
-                if(result1){
-                    res.json({
-                        code:1
-                    })
-                }
-            })
-        }
-    })
-    
-    
+    if(data.username==""){
+        res.json({
+            msg:"请您先登录"
+        })
+    }else{
+        Cartsure.remove({}).then((result)=>{
+            if(result){
+                Cartsure.create(data).then((result1)=>{
+                    if(result1){
+                        res.json({
+                            code:1
+                        })
+                    }
+                })
+            }
+        })
+    }
 }
 
 

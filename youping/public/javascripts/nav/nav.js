@@ -52,8 +52,11 @@ cm_login.onmouseenter=function(){
 }
 cm_login.onmouseleave=function(){
     for(var j = 0 ;j<cli1.length;j++){
-        cli1[j].style.cssText = 'background:#fff'
-        ca1[j].style.cssText = 'color:#666'
+        if (cli1[j] && ca1[j]) {
+            cli1[j].style.cssText = 'background:#fff'
+            ca1[j].style.cssText = 'color:#666'
+        }
+        
     }
     clogin_item_nav.style.display = 'none'
 }

@@ -139,21 +139,21 @@ button{
 .minus{
     margin-left:30px;
     width:30px;
-    height:26px;
+    height:27px;
     background: none;
     border:1px solid #CCCCCC;
     font-size:16px;
 }
 .amount{
     width:65px;
-    height:26px;
+    height:27px;
     text-align: center;
     border:1px solid #CCCCCC;
-    padding-top:4px;
+    padding-top:2px;
 }
 .addition{
     width:30px;
-    height:26px;
+    height:27px;
     background: none;
     border:1px solid #CCCCCC;
     font-size:16px;

@@ -228,18 +228,24 @@ checkout.onclick=function(){
     if((totalprice1.innerHTML-0)>0){
         var select_checkbox1 = document.querySelectorAll('.select-checkbox')
         var cart_good_items1 = document.querySelectorAll('.cart-good-items')
+        var select_checkbox2 = document.querySelectorAll('.select-checkbox:checked')
+        var num11 = 0;
         for(let i=0;i<select_checkbox1.length;i++){
             if(select_checkbox1[i].checked == true){
                 $.ajax({
                     type:'post',
                     url:'/crecartsure',
                     data:`username=${musername.innerHTML}&_id=${cart_good_items1[i].id}`,
-                    success:function(){
-
+                    success:function(data1){
+                        if(data1.code){
+                            num11++
+                            if(num11 == select_checkbox2.length){
+                                location.href=`/user/cartsure/${musername.innerHTML}`
+                            } 
+                        }
                     }
-                })
+                }) 
             }
         }
-        location.href=`/user/cartsure/${musername.innerHTML}`
     }
 }

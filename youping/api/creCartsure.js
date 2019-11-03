@@ -17,7 +17,9 @@ function createCartsure(req,res){
                 if(result1){
                     createCart.create(data).then((result2)=>{
                         if(result2){
-                            
+                            res.json({code:1})
+                        }else{
+                            res.json({code:0})
                         }
                     })
                 }
